@@ -1,0 +1,22 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(122, 120, 120);
+  height: 100vh;
+}
+
+canvas {
+  border: rgb(211, 210, 210) solid 1px;
+  background-color: rgb(4, 112, 9);
+  color: rgb(243, 241, 233);
+}
+
+.custom {
+  cursor: url(../img/stylo32.png) 0 32, crosshair;
+}
