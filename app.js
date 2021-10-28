@@ -167,10 +167,10 @@ penduOneGamer.set(9, leftFoot);
 const reset = document.getElementById('reset');
 let color = document.getElementById('color');
 
-const canvas = document.getElementById('draw2');
-const ctx = canvas.getContext('2d');
-canvas.width = 350;
-canvas.height = 450;
+const canvasTwo = document.getElementById('draw2');
+const ctxTwo = canvasTwo.getContext('2d');
+canvasTwo.width = 350;
+canvasTwo.height = 450;
 
 const colorCanvas = (e) => {
   color = e.target.value;
@@ -179,39 +179,39 @@ const colorCanvas = (e) => {
 
 color.addEventListener('input', colorCanvas);
 
-// fucntion mouse position = moveTo on canvas
+// fucntion mouse position = moveTo on canvasTwo
 const getMousePosition = (e) => {
-  const rect = canvas.getBoundingClientRect();
+  const rect = canvasTwo.getBoundingClientRect();
   return {
     x: e.clientX - rect.left,
     y: e.clientY - rect.top,
   };
 };
-// function mouseMove = LineTo on canvas
+// function mouseMove = LineTo on canvasTwo
 const mouseMove = (e) => {
   const mousePos = getMousePosition(e);
-  ctx.lineTo(mousePos.x, mousePos.y);
-  ctx.stroke();
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 10;
+  ctxTwo.lineTo(mousePos.x, mousePos.y);
+  ctxTwo.stroke();
+  ctxTwo.strokeStyle = color;
+  ctxTwo.lineWidth = 10;
 };
 
-// event on canvas with mouse
-canvas.addEventListener('mousedown', (e) => {
+// event on canvasTwo with mouse
+canvasTwo.addEventListener('mousedown', (e) => {
   e.preventDefault();
   const mousePos = getMousePosition(e);
-  ctx.beginPath();
-  ctx.moveTo(mousePos.x, mousePos.y);
+  ctxTwo.beginPath();
+  ctxTwo.moveTo(mousePos.x, mousePos.y);
 
-  canvas.addEventListener('mousemove', mouseMove);
-  canvas.addEventListener('mouseup', () => {
-    canvas.removeEventListener('mousemove', mouseMove);
+  canvasTwo.addEventListener('mousemove', mouseMove);
+  canvasTwo.addEventListener('mouseup', () => {
+    canvasTwo.removeEventListener('mousemove', mouseMove);
   });
 });
 
-// event reset canvas
+// event reset canvasTwo
 reset.addEventListener('click', () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctxTwo.clearRect(0, 0, canvasTwo.width, canvasTwo.height);
 });
 
 //end canvas two gamers
@@ -395,7 +395,7 @@ const verify = () => {
 };
 
 /// reset input
-const reset = () => {
+const resetInputs = () => {
   const radios = document.querySelectorAll('input[type="radio"]');
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].hasAttribute('checked')) {
@@ -420,7 +420,7 @@ valid.addEventListener('click', (e) => {
     parameter.pseudo2 = nameTwo;
     parameter.wordNumber = wordEndGame;
     parameter.level = difficult;
-    reset();
+    resetInputs();
     document.location = '../html/game.html';
   }
 });
