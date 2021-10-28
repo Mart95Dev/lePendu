@@ -1,18 +1,4 @@
-/*base*/
-
-*,
-::after,
-::before {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 14px;
-  background-color: rgb(49, 88, 88);
-  color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 0.3fr 1fr 1fr 1fr;
