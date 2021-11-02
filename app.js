@@ -301,7 +301,7 @@ buttonAlphabet.forEach((letters) => {
   });
 });
 
-//////////Choice parameters game
+//////////Choice parameters game///////////////////////////////
 
 const buttonGamer = document.querySelectorAll('input[name="gamer"]');
 const pseudoOne = document.getElementById('p1');
