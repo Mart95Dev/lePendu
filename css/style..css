@@ -27,11 +27,6 @@ h2 {
   text-align: justify;
 }
 
-button:hover {
-  background-color: aquamarine;
-  cursor: url();
-}
-
 h1 {
   text-align: center;
   font-size: 2em;
@@ -248,23 +243,82 @@ body {
 .container {
   display: flex;
   justify-content: space-evenly;
-  height: 80vh;
+  height: auto;
 }
 
 .letters {
   width: 60%;
-  border: yellow;
-  background-color: yellowgreen;
 }
 
 .static-pendu {
+  display: block;
+  justify-content: center;
   width: 40%;
-  border: yellowgreen;
-  background-color: rgb(205, 133, 50);
+}
+
+.game-win,
+.game-lost,
+.hideword,
+.alphabet,
+.letters-seek,
+.modal-one-gamer {
+  border: 1px solid #c4c2c2;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-bottom: 15px;
 }
 
 .hideword {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  letter-spacing: 20px;
   font-size: 50px;
-  text-align: center;
+  /* text-align: center; */
   color: white;
+}
+
+.modal-one-gamer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+button:hover {
+  background-color: rgba(233, 158, 20, 0.979);
+}
+
+button {
+  color: white;
+  background-color: black;
+  border: 1px solid #c4c2c2;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  margin: 3px;
+}
+
+.end-game {
+  display: flex;
+  justify-content: center;
+}
+
+.alphabet {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #c4c2c2;
+}
+
+.letters-seek {
+  margin-top: 15px;
+}
+
+.end {
+  width: 100px;
 }
