@@ -64,7 +64,7 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
             <label class="btn-radio boxDisabled" for="2">2 joueurs</label>            
          </div>
     </div>
-    <div class="box pseudo">
+    <div class="box names">
         <p class="subtitle">Choix du pseudo du joueur :</p>
         <div class="choice-pseudo">
             <label for="pseudo">Joueur 1</label>
@@ -83,12 +83,12 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
     <div class="box difficult">
         <p class="subtitle">Choix du niveau de difficulté :</p>
         <div class="choice-difficult">
-            <input type="radio" id="easy" name="level">
-            <label class="btn-radio" for="easy">Facile</label>
-            <input type="radio" id="medium" name="level">
-            <label class="btn-radio" for="medium">Moyen</label>
-            <input type="radio" id="hard" name="level">
-            <label class="btn-radio" for="hard">Difficile</label>                
+            <input type="radio" id="Facile" name="level">
+            <label class="btn-radio" for="Facile">Facile</label>
+            <input type="radio" id="Moyen" name="level">
+            <label class="btn-radio" for="Moyen">Moyen</label>
+            <input type="radio" id="Difficile" name="level">
+            <label class="btn-radio" for="Difficile">Difficile</label>                
         </div>
     </div>
     <div class="valid">
@@ -96,46 +96,59 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
     </div>
 </div>
 
-<div class="modal-game">
-    <h1 class="title">LE JEU DU PENDU</h1>    
-    <div class="hideword"></div>
-    <div class="alphabet">
-        <button id="a">A</button>
-        <button id="b">B</button>
-        <button id="c">C</button>
-        <button id="d">D</button>
-        <button id="e">E</button>
-        <button id="f">F</button>
-        <button id="g">G</button>
-        <button id="h">H</button>
-        <button id="i">I</button>
-        <button id="j">J</button>
-        <button id="k">K</button>
-        <button id="l">L</button>
-        <button id="m">M</button>
-        <button id="n">N</button>
-        <button id="o">O</button>
-        <button id="p">P</button>
-        <button id="q">Q</button>
-        <button id="r">R</button>
-        <button id="s">S</button>
-        <button id="t">T</button>
-        <button id="u">U</button>
-        <button id="v">V</button>
-        <button id="w">W</button>
-        <button id="x">X</button>
-        <button id="y">Y</button>
-        <button id="z">Z</button>
-    </div>
-    <div class="modal-one-gamer">
-        <canvas id="draw1"></canvas>        
-    </div>
-    <!-- <div class="modal-two-gamers">
-        <canvas class="custom" id="draw2"></canvas>
-        <input type="reset" id="reset">
-        <label for="color">Couleur</label>
-        <input type="color" id="color" value="#7C5008">
-    </div> -->
+<div class="modal-game"> 
+    <h1 class="title">LE JEU DU PENDU</h1>        
+         <div class="parameters">
+            <p class="level"></p>
+            <p class="pseudo"></p>
+            <p class="word-game"></p>
+        </div> 
+
+        <div class="container">
+            <div class="letters">
+                <div class="hideword"></div>
+                <div class="alphabet">
+                    <button id="a">A</button>
+                    <button id="b">B</button>
+                    <button id="c">C</button>
+                    <button id="d">D</button>
+                    <button id="e">E</button>
+                    <button id="f">F</button>
+                    <button id="g">G</button>
+                    <button id="h">H</button>
+                    <button id="i">I</button>
+                    <button id="j">J</button>
+                    <button id="k">K</button>
+                    <button id="l">L</button>
+                    <button id="m">M</button>
+                    <button id="n">N</button>
+                    <button id="o">O</button>
+                    <button id="p">P</button>
+                    <button id="q">Q</button>
+                    <button id="r">R</button>
+                    <button id="s">S</button>
+                    <button id="t">T</button>
+                    <button id="u">U</button>
+                    <button id="v">V</button>
+                    <button id="w">W</button>
+                    <button id="x">X</button>
+                    <button id="y">Y</button>
+                    <button id="z">Z</button>
+                </div>
+                    <div class="letters-seek"></div>
+            </div>
+            <div class="static-pendu">
+                    <div class="game-win"></div>
+                    <div class="game-lost"></div>
+                        <div class="modal-one-gamer">                            
+                            <canvas id="draw1"></canvas>        
+                        </div>
+                            <div class="end-game">
+                                <button>Arrêter le jeu</button>
+                            </div>
+            </div>                
+
+        </div>
 </div>
 
 

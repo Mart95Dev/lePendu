@@ -247,7 +247,6 @@ let numberPlayer = null;
 let wordEndGame = null;
 let difficult = null;
 let error = false;
-const parameter = {};
 
 // choice player number
 buttonGamer.forEach((gamer) => {
@@ -305,7 +304,7 @@ const verify = () => {
     return;
   }
 
- /*  if (nameOne === null && nameTwo === null) {
+  /*  if (nameOne === null && nameTwo === null) {
     alert('Vous avez oublié de saisir les pseudos');
     error = true;
     return;
@@ -343,16 +342,19 @@ valid.addEventListener('click', (e) => {
     e.preventDefault;
     error = false;
   } else {
-    parameter.players = numberPlayer;
-    parameter.pseudo1 = nameOne;
-    /* parameter.pseudo2 = nameTwo; */
-    parameter.wordNumber = wordEndGame;
-    parameter.level = difficult;
     resetInputs();
     modalParameter.classList.remove('active');
     modalParameter.classList.add('modal-parameter');
     contentGame.classList.add('active');
     contentGame.classList.remove('modal-game');
+    const level = document.querySelector('.level');
+    const pseudo = document.querySelector('.pseudo');
+    const wordGame = document.querySelector('.word-game');
+
+    wordGame.textContent = `Choix du nombre mots à trouver : ${wordEndGame}`;
+    pseudo.textContent = `Pseudo : ${nameOne}`;
+    level.textContent = `Niveau de difficulté : ${difficult}`;
+
     /// AJOUTER MODALES EN FONCTION DU NOMBRE DE JOUEURS !!! AVEC CONDITION PLAYERS
   }
 });
@@ -364,7 +366,6 @@ const buttonAlphabet = document.querySelectorAll('.alphabet button');
 let count = 0;
 let letterFound = false;
 let tempWord = [];
-
 let wordHide = document.createElement('p');
 let buttonLetter = '';
 

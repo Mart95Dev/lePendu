@@ -218,6 +218,7 @@ body {
 .modal-game {
   opacity: 0;
   display: none;
+  font-size: 20px;
 }
 
 .active {
@@ -226,4 +227,44 @@ body {
   /* animation-duration: 4ms;
   transition: ease-in-out; */
 }
+
 /* --------- content game ---- */
+
+.title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.parameters {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: gray;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 80vh;
+}
+
+.letters {
+  width: 60%;
+  border: yellow;
+  background-color: yellowgreen;
+}
+
+.static-pendu {
+  width: 40%;
+  border: yellowgreen;
+  background-color: rgb(205, 133, 50);
+}
+
+.hideword {
+  font-size: 50px;
+  text-align: center;
+  color: white;
+}
