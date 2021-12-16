@@ -159,7 +159,7 @@ penduOneGamer.set(9, leftFoot);
 
 ////////////// canvas two gamers ///////////////////////
 
-const reset = document.getElementById('reset');
+/* const reset = document.getElementById('reset');
 let color = document.getElementById('color');
 
 const canvasTwo = document.getElementById('draw2');
@@ -172,10 +172,10 @@ const colorCanvas = (e) => {
   console.log(color);
 };
 
-color.addEventListener('input', colorCanvas);
+color.addEventListener('input', colorCanvas); */
 
 // fucntion mouse position = moveTo on canvasTwo
-const getMousePosition = (e) => {
+/* const getMousePosition = (e) => {
   const rect = canvasTwo.getBoundingClientRect();
   return {
     x: e.clientX - rect.left,
@@ -207,7 +207,7 @@ canvasTwo.addEventListener('mousedown', (e) => {
 // event reset canvasTwo
 reset.addEventListener('click', () => {
   ctxTwo.clearRect(0, 0, canvasTwo.width, canvasTwo.height);
-});
+}); */
 
 ///////////////////// MODALES ///////////////////////////////
 
@@ -215,7 +215,7 @@ const modalRule = document.querySelector('.modal-rules');
 const modalParameter = document.querySelector('.modal-parameter');
 const buttonParameter = document.getElementById('begin');
 const contentGame = document.querySelector('.modal-game');
-/// AJOUTER MODALES EN FONCTION DU NOMBRE DE JOUEURS/// !!!!
+/// AJOUTER MODALES EN FONCTION DU NOMBRE DE JOUEURS/// function two gamers disabled
 
 window.onload = () => {
   modalRule.classList.add('active');
@@ -253,11 +253,11 @@ const parameter = {};
 buttonGamer.forEach((gamer) => {
   gamer.addEventListener('click', (e) => {
     numberPlayer = e.target.id;
-    if (numberPlayer == 1) {
+    /* if (numberPlayer == 1) {
       pseudoTwo.classList.add('boxDisabled');
     } else {
       pseudoTwo.classList.remove('boxDisabled');
-    }
+    } */
     gamer.setAttribute('checked', '');
   });
 });
@@ -270,12 +270,12 @@ pseudoOne.addEventListener('input', (e) => {
   temp = [];
 });
 
-pseudoTwo.addEventListener('input', (e) => {
+/* pseudoTwo.addEventListener('input', (e) => {
   let two = e.target.value;
   temp.push(two);
   nameTwo = temp.pop();
   temp = [];
-});
+}); */
 
 // choice number word
 numberWord.addEventListener('input', (e) => {
@@ -305,11 +305,11 @@ const verify = () => {
     return;
   }
 
-  if (nameOne === null && nameTwo === null) {
+ /*  if (nameOne === null && nameTwo === null) {
     alert('Vous avez oublié de saisir les pseudos');
     error = true;
     return;
-  }
+  } */
 
   if (numberPlayer == 1 && nameOne === null) {
     alert('Veuillez saisir le pseudo 1');
@@ -345,7 +345,7 @@ valid.addEventListener('click', (e) => {
   } else {
     parameter.players = numberPlayer;
     parameter.pseudo1 = nameOne;
-    parameter.pseudo2 = nameTwo;
+    /* parameter.pseudo2 = nameTwo; */
     parameter.wordNumber = wordEndGame;
     parameter.level = difficult;
     resetInputs();
@@ -387,16 +387,21 @@ const words = [
 // Choice word
 let wordRandomArray = words[Math.floor(Math.random() * words.length)];
 tempWord.push(wordRandomArray.toUpperCase());
+console.log(tempWord);
 let selectWord = wordRandomArray.toString().toUpperCase();
+console.log(selectWord);
 
 ///////////////////////////////////////
-// code new part
-if (tempWord.includes(selectWord)) {
-  for (let i = 0; i < words.length; i++) {
-    if (words[i] === wordRandomArray) {
-      words.splice(i, 1);
+// code new word
+if (tempWord.length > 1) {
+  if (tempWord.includes(selectWord)) {
+    for (let i = 0; i < words.length; i++) {
+      if (words[i] === wordRandomArray) {
+        words.splice(i, 1);
+      }
     }
   }
+
   wordRandomArray = words[Math.floor(Math.random() * words.length)];
   console.log('word random apres if ' + wordRandomArray);
   selectWord = wordRandomArray.toString().toUpperCase();
