@@ -29,8 +29,8 @@ h2 {
 
 h1 {
   text-align: center;
-  font-size: 2em;
-  margin: 10px auto 10px;
+  color: white;
+  margin: 2px auto 2px;
 }
 
 li {
@@ -56,6 +56,17 @@ h1 {
 }
 
 /* ---- style box ---- */
+
+/* -- temporary --*/
+
+.progress {
+  font-size: 12px;
+  margin-left: 15px;
+  color: white;
+  opacity: 0.2;
+  font-style: italic;
+}
+/*------------------*/
 
 .box {
   background-color: #333;
@@ -143,6 +154,14 @@ input[type='radio']:checked + label {
   opacity: 0.2;
 }
 
+/* -- letters seek -- */
+.btn-letter-seek {
+  pointer-events: none;
+  background-color: rgb(255, 127, 80);
+}
+
+/* -------------------*/
+
 .btn-radio {
   display: flex;
   justify-content: center;
@@ -164,15 +183,13 @@ input[type='radio']:checked + label {
 
 /* ---- style canvas ---- */
 
-body {
-  background-color: rgb(122, 120, 120);
-  height: 100vh;
-}
-
 canvas {
   border: rgb(211, 210, 210) solid 1px;
+  border-radius: 5px;
   background-color: rgb(4, 112, 9);
   color: rgb(243, 241, 233);
+  width: 100%;
+  height: 450px;
 }
 
 .custom {
@@ -195,8 +212,9 @@ body {
   background-color: rgb(49, 88, 88);
   color: white;
   padding: 10px;
-  height: 100vh;
-  width: 100vw;
+  margin: auto;
+  height: 90vh;
+  width: 90vw;
 }
 
 /* ---- style game ---- */
@@ -216,6 +234,11 @@ body {
   font-size: 20px;
 }
 
+.modal-stop-game {
+  opacity: 0;
+  display: none;
+}
+
 .active {
   display: visible;
   opacity: 1;
@@ -227,8 +250,8 @@ body {
 
 .title {
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .parameters {
@@ -242,7 +265,7 @@ body {
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   height: auto;
 }
 
@@ -251,39 +274,36 @@ body {
 }
 
 .static-pendu {
-  display: block;
-  justify-content: center;
+  margin-left: 10px;
   width: 40%;
 }
 
-.game-win,
-.game-lost,
 .hideword,
 .alphabet,
 .letters-seek,
-.modal-one-gamer {
+.blok-word-win-lost {
   border: 1px solid #c4c2c2;
   border-radius: 5px;
-  margin-left: 10px;
   margin-bottom: 15px;
 }
 
 .hideword {
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 20px;
-  letter-spacing: 20px;
-  font-size: 50px;
-  /* text-align: center; */
+  padding: 10px;
+  letter-spacing: 12px;
+  font-size: 35px;
   color: white;
+}
+
+.content-hide-word {
+  margin: 0 auto 0;
 }
 
 .modal-one-gamer {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 }
 
 button:hover {
@@ -300,7 +320,7 @@ button {
   margin: 3px;
 }
 
-.end-game {
+.button-game {
   display: flex;
   justify-content: center;
 }
@@ -317,8 +337,41 @@ button {
 
 .letters-seek {
   margin-top: 15px;
+  min-height: 100px;
+}
+
+.seek {
+  letter-spacing: 10px;
+}
+
+.blok-word-win-lost {
+  height: 100px;
+}
+
+.letter-choice-title {
+  text-align: center;
+  border-bottom: 1px solid #c4c2c2;
+  background-color: gray;
+  border-radius: 3px;
+}
+
+.word-win-title,
+.word-lost-title {
+  text-align: center;
+  border-bottom: 1px solid #c4c2c2;
+  background-color: gray;
+  border-radius: 3px;
+}
+
+.word-win,
+.word-lost {
+  height: 30px;
 }
 
 .end {
   width: 100px;
+}
+
+.reset-parameters {
+  width: 165px;
 }
