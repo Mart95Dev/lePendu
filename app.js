@@ -350,7 +350,8 @@ const pseudoOne = document.getElementById('p1');
 const pseudoTwo = document.getElementById('p2');
 const numberWord = document.getElementById('word');
 const levelGame = document.querySelectorAll('input[name="level"]');
-
+const numberHitWord = document.querySelector('.container-hideword');
+const resetParameters = document.querySelector('.reset-parameters');
 const valid = document.querySelector('.btn');
 
 //variables
@@ -362,6 +363,8 @@ let wordEndGame = null;
 let difficult = null;
 let error = false;
 let tabWord = 0;
+let countNumberHitWord = 0;
+let tempdifficult = 0;
 
 // choice player number
 /* buttonGamer.forEach((gamer) => {
@@ -408,7 +411,6 @@ numberWord.addEventListener('input', (e) => {
   wordEndGame = temp.pop();
 });
 
-// choice level game
 levelGame.forEach((level) => {
   level.addEventListener('click', (e) => {
     difficult = e.target.id;
@@ -478,17 +480,42 @@ valid.addEventListener('click', (e) => {
     const pseudo = document.querySelector('.pseudo');
     const wordGame = document.querySelector('.word-game');
 
+    // number hit word game
+    const numberHitWord = document.querySelector('.container-hideword');
+
+    if (difficult == 'Facile') {
+      countNumberHitWord = 11;
+    } else if (difficult == 'Moyen') {
+      countNumberHitWord = 9;
+    } else {
+      countNumberHitWord = 5;
+    }
+
+    tempdifficult++;
     wordGame.textContent = `Choix du nombre mots à trouver : ${wordEndGame}`;
     pseudo.textContent = `Pseudo : ${nameOne.toString().toUpperCase()}`;
     level.textContent = `Niveau de difficulté : ${difficult
       .toString()
       .toUpperCase()}`;
+    if (tempdifficult === 1) {
+      numberHitWord.insertAdjacentHTML(
+        'afterbegin',
+        `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
+      );
+    } else {
+      const hitNumber = document.querySelector('.number-hit');
+      hitNumber.remove();
+      numberHitWord.insertAdjacentHTML(
+        'afterbegin',
+        `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
+      );
+    }
+
     /// AJOUTER MODALES EN FONCTION DU NOMBRE DE JOUEURS !!! AVEC CONDITION PLAYERS
+    ////////Verify word game////
     if (tabWord === 0) {
       gameWordPendu();
       tabWord = 1;
-    } else {
-      return;
     }
   }
 });
@@ -571,7 +598,19 @@ const gameWordPendu = () => {
     letters.addEventListener('click', (e) => {
       buttonLetter = e.target.id.toUpperCase();
       letters.classList.add('boxDisabled');
-
+      resetParameters.classList.add('boxDisabled');
+      const numberHit = document.querySelector('.number-hit');
+      countNumberHitWord--;
+      numberHit.remove();
+      numberHitWord.insertAdjacentHTML(
+        'afterbegin',
+        `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
+      );
+      //////////////////////////////////
+      if (countNumberHitWord === 0) {
+        console.log('passer au mot suivant');
+      }
+      ////////////////////////////////////////
       /// box seek letters/////////////
       let boxSeekLetters = document.querySelector('.seek');
       boxSeekLetters.insertAdjacentHTML(
@@ -603,7 +642,6 @@ const gameWordPendu = () => {
 };
 
 // reset parameters gamer
-const resetParameters = document.querySelector('.reset-parameters');
 resetParameters.addEventListener('click', () => {
   modalParameter.classList.add('active');
   modalParameter.classList.remove('modal-parameter');

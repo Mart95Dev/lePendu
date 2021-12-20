@@ -278,7 +278,7 @@ body {
   width: 40%;
 }
 
-.hideword,
+.container-hideword,
 .alphabet,
 .letters-seek,
 .blok-word-win-lost {
@@ -320,6 +320,13 @@ button {
   margin: 3px;
 }
 
+.hit {
+  pointer-events: none;
+  background-color: rgba(233, 158, 20, 0.979);
+  color: black;
+  font-weight: 500;
+}
+
 .button-game {
   display: flex;
   justify-content: center;
@@ -348,7 +355,8 @@ button {
   height: 100px;
 }
 
-.letter-choice-title {
+.letter-choice-title,
+.number-hit {
   text-align: center;
   border-bottom: 1px solid #c4c2c2;
   background-color: gray;
