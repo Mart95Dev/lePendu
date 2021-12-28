@@ -239,6 +239,11 @@ body {
   display: none;
 }
 
+.modal-win-lost-game {
+  opacity: 0;
+  display: none;
+}
+
 .active {
   display: visible;
   opacity: 1;
@@ -260,7 +265,28 @@ body {
   border: 1px solid gray;
   border-radius: 5px;
   background-color: gray;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+}
+
+.box-choice-word {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: gray;
+  margin-bottom: 5px;
+}
+
+.btn-style-choice-parameters {
+  width: auto;
+  padding: 8px;
+  pointer-events: none;
+}
+
+.btn-style-choice-word-game {
+  pointer-events: none;
+  font-size: 16px;
 }
 
 .container {
@@ -281,7 +307,8 @@ body {
 .container-hideword,
 .alphabet,
 .letters-seek,
-.blok-word-win-lost {
+.warning,
+.lost-win {
   border: 1px solid #c4c2c2;
   border-radius: 5px;
   margin-bottom: 15px;
@@ -320,11 +347,25 @@ button {
   margin: 3px;
 }
 
-.hit {
+.hit,
+.score-word-win,
+.score-word-lost,
+.rest-choice-word-win-game {
   pointer-events: none;
   background-color: rgba(233, 158, 20, 0.979);
   color: black;
   font-weight: 500;
+  font-size: 16px;
+  width: 26px;
+  height: 26px;
+}
+
+.score-word-win {
+  margin-left: 17px;
+}
+
+.score-word-lost {
+  margin-left: 30px;
 }
 
 .button-game {
@@ -351,18 +392,8 @@ button {
   letter-spacing: 10px;
 }
 
-.blok-word-win-lost {
-  height: 100px;
-}
-
 .letter-choice-title,
-.number-hit {
-  text-align: center;
-  border-bottom: 1px solid #c4c2c2;
-  background-color: gray;
-  border-radius: 3px;
-}
-
+.number-hit,
 .word-win-title,
 .word-lost-title {
   text-align: center;
@@ -371,9 +402,37 @@ button {
   border-radius: 3px;
 }
 
-.word-win,
-.word-lost {
-  height: 30px;
+img{
+  width: 150px;
+  height: 150px;
+}
+
+.smileys {
+  margin-top: 50px;
+  min-height: 75%;
+  width: 172px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c4c2c2;
+  border-radius: 5px;
+  margin-bottom: 15px;
+
+}
+
+.smiley-word-hit {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 10px;
+ background-color: black;
+}
+
+.word-lost-title {
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .end {
@@ -382,4 +441,76 @@ button {
 
 .reset-parameters {
   width: 165px;
+}
+
+/*--- Modal stop game ---*/
+
+.container-stop-game {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.warning {
+  height: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.go-game,
+.stop {
+  width: 125px;
+}
+
+.total-hit {
+  width: auto;
+  height: 26px;
+  padding: 1px 8px 1px;
+}
+
+.total-word {
+  width: 26px;
+  height: 26px;
+}
+
+.word-percent {
+  width: 50px;
+  height: 26px;
+}
+
+.btn-score {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stop-2,
+.go-game-2 {
+  width: auto;
+  padding: 8px;
+}
+
+.lost-win {
+  min-width: 250px;
+  min-height: 300px;
+}
+
+.win-lost-text1 {
+  text-align: center;
+  font-size: 35px;
+  background-color: orange;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+
+.name-player{
+  font
+}
+
+.win-lost-text2 {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 10px;
 }

@@ -97,22 +97,17 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
 
 <div class="modal-stop-game">
     <p class="warning"></p>
-    <button class="stop">Quitter le jeu</button>
-    <button class="go-game">Reprendre le jeu</button>
+    <div class="container-stop-game">
+        <button class="stop">Quitter le jeu</button>
+        <button class="go-game">Reprendre le jeu</button>
+    </div>
 </div> 
-
 <div class="modal-game container-game"> 
     <p class="title">LE JEU DU PENDU</p>        
-         <div class="parameters">
-            <p class="pseudo"></p>
-            <p class="level"></p>           
-            <p class="word-game"></p>
-        </div> 
-
-        <div class="container">
+         <div class="parameters"></div> 
+            <div class="container">
             <div class="letters">
-                <div class="container-hideword">
-                    
+                <div class="container-hideword">                    
                     <div class="hideword"></div>                    
                 </div>
                 <div class="alphabet">
@@ -149,17 +144,12 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
                     </div>
                     <div class="button-game">
                         <button class="end">Arrêter le jeu</button>                
-                        <button class="reset-parameters">Modifier les paramètres</button>
+                        <button class="reset-parameters">Modifier les paramètres</button>                        
                     </div>
             </div>
            
             <div class="static-pendu">
-                    <div class="blok-word-win-lost">
-                        <p class="word-win-title">Nombre de mots retrouvés</p>
-                        <div class="word-win"></div>              
-                        <p class="word-lost-title">Nombre de mots erronés</p>
-                        <div class="word-lost"></div>
-                    </div>                    
+                    <div class="blok-word-win-lost"></div>                    
                         <div class="modal-one-gamer">                            
                             <canvas id="draw1"></canvas>        
                         </div>
@@ -167,6 +157,14 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
             </div>  
                          
 
+        </div>
+</div>
+<div class="modal-win-lost-game">
+
+   
+    <div class="btn-score">
+        <button class="stop-2">Quitter le jeu</button>
+        <button class="go-game-2">Recommencer le jeu du pendu</button>
         </div>
 </div>
 
