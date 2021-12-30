@@ -377,6 +377,8 @@ let countParameters = 0;
 let countBoxLetters = 0;
 let wordLost = 0;
 let wordWin = 0;
+let styleWord1 = '';
+let styleword2 = '';
 
 // choice player number
 /* buttonGamer.forEach((gamer) => {
@@ -499,34 +501,32 @@ valid.addEventListener('click', (e) => {
     contentGame.classList.add('active');
     contentGame.classList.remove('modal-game');
 
-    let styleWord = '';
-    let styleword2 = '';
     if (wordEndGame === 1) {
-      styleWord = 'mot';
+      styleWord1 = 'mot';
       styleword2 = 'retrouvé';
     } else {
-      styleWord = 'mots';
+      styleWord1 = 'mots';
       styleword2 = 'retrouvés';
     }
 
     countBoxLetters++;
+    tempWordEndGame = wordEndGame;
 
     if (countBoxLetters === 1) {
       boxLetters.insertAdjacentHTML(
         'afterbegin',
-        `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${wordEndGame}</button> ${styleWord} à ${styleword2}</p>`
+        `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
       );
     } else {
       resetChoiceWordWinGame();
 
       boxLetters.insertAdjacentHTML(
         'afterbegin',
-        `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${wordEndGame}</button> ${styleWord} à ${styleword2}</p>`
+        `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
       );
     }
 
     countParameters++;
-    tempWordEndGame = wordEndGame;
 
     if (countParameters === 1) {
       parameters.insertAdjacentHTML(
@@ -543,7 +543,7 @@ valid.addEventListener('click', (e) => {
       );
       parameters.insertAdjacentHTML(
         'beforeend',
-        `<p class="word-game">Choix du nombre mots à trouver : <button class="btn-style-choice-word-game">${tempWordEndGame}</button></p>`
+        `<p class="word-game">Choix du nombre mots à trouver : <button class="btn-style-choice-word-game">${wordEndGame}</button></p>`
       );
     } else {
       /* resetChoiceWordWinGame(); */
@@ -616,6 +616,8 @@ let buttonLetter = '';
 let countWinLostTitle = 0;
 let countLostGame = 0;
 let countWinGame = 0;
+let scoreHitTab = [];
+let resetBtnAlphabet = false;
 
 const gameWordPendu = () => {
   const hideWord = document.querySelector('.hideword');
@@ -642,14 +644,14 @@ const gameWordPendu = () => {
     'Chlorophylle',
     'Metallurgie',
     'Metamorphose',
-    'Montgolfière',
+    'Montgolfiere',
     'Kaleidoscope',
     'Conquistador',
     'Conspirateur',
     'Rhododendron',
     'Qualification',
     'Protozoaire',
-    'Quadrilatère',
+    'Quadrilatere',
     'Zygomatique',
     'Sorcellerie',
     'Belligerant',
@@ -663,7 +665,7 @@ const gameWordPendu = () => {
     'Coquelicot',
     'Dissimuler',
     'Flibustier',
-    'Forestière',
+    'Forestiere',
     'Grenouille',
     'Impossible',
     'Labyrinthe',
@@ -724,7 +726,7 @@ const gameWordPendu = () => {
     'Cabane',
     'Caïman',
     'Cloche',
-    'Chèque',
+    'Cheque',
     'Cirage',
     'Coccyx',
     'Crayon',
@@ -834,17 +836,22 @@ const gameWordPendu = () => {
 
       /////////////////////////////
       displayLetter = seekLetter(buttonLetter);
+      console.log(displayLetter);
       if (!letterFound) {
         // if choice letter is not found - draw pendu
+        console.log('compteur au debut ' + count);
         if (difficult === 'Facile') {
           ++count;
           drawPenduLevelEasy.get(count)();
+          console.log(count);
         } else if (difficult === 'Moyen') {
           ++count;
           drawPenduLevelMedium.get(count)();
+          console.log(count);
         } else {
           ++count;
           drawPenduLevelDifficult.get(count)();
+          console.log(count);
         }
 
         countNumberHitWord--;
@@ -859,7 +866,8 @@ const gameWordPendu = () => {
         if (tempWordEndGame === 1) {
           winGame();
         } else {
-          console.log('travail à faire');
+          if (tempWordEndGame > 1) {
+          }
         }
       }
 
@@ -867,7 +875,10 @@ const gameWordPendu = () => {
         if (tempWordEndGame === 1) {
           lostGame();
         } else {
-          console.log('travail à faire');
+          if (tempWordEndGame > 1) {
+            numberWordLost();
+            console.log('fonction numberWordLost fini de travailler');
+          }
         }
       }
     });
@@ -897,6 +908,14 @@ const resetChoiceWordWinGame = () => {
   return;
 };
 
+//function reset buttons selected
+const resetButtonSelected = () => {
+  const buttonSeek = document.querySelectorAll('.btn-letter-seek');
+  buttonSeek.forEach((letter) => {
+    letter.remove();
+  });
+};
+
 //function reset canvas and count of pendudraw
 const resetCanvas = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -919,6 +938,7 @@ resetParameters.addEventListener('click', () => {
   modalParameter.classList.remove('modal-parameter');
   contentGame.classList.remove('active');
   contentGame.classList.add('modal-game');
+  return;
 });
 
 // reset win and lost title
@@ -927,8 +947,10 @@ const resetWinLostTitle = () => {
   const wordLostTitle = document.querySelector('.word-lost-title');
   wordLostTitle.remove();
   wordWinTitle.remove();
+  return;
 };
 
+//function ???
 const resetScoreWordAndHit = () => {
   const lostWinDom = document.querySelector('.lost-win');
   lostWinDom.remove();
@@ -995,7 +1017,6 @@ const smileysLost = () => {
   if (countLostGame === 0) {
     let scorePercentLost =
       ((wordEndGame - tempWordEndGame) / wordEndGame) * 100;
-    console.log('score lost est ' + scorePercentLost);
 
     if (scorePercentLost < 26) {
       smileyWordHit.setAttribute('src', '/svg/en-colere.svg');
@@ -1019,7 +1040,6 @@ const smileysWin = () => {
 
   if (countWinGame === 0) {
     let scorePercentWin = (tempWordEndGame / wordEndGame) * 100;
-    console.log('score gagnant est ' + scorePercentWin);
 
     if (scorePercentWin < 26) {
       smileyWordHit.setAttribute('src', '/svg/en-colere.svg');
@@ -1135,8 +1155,73 @@ const winGame = () => {
   }
 };
 
+//function re-game when word lost
+const reGameWordLost = () => {
+  resetWordHide();
+  resetButtonSelected();
+  hitNumber();
+  resetCanvas();
+  resetDisabledLettersSeek();
+  resetChoiceWordWinGame();
+  count = 0;
+  letterFound = false;
+  tempWord = [];
+  //////////////////////////////////
+  boxLetters.insertAdjacentHTML(
+    'afterbegin',
+    `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
+  );
+  ////////////////////////////////
+  resetWinLostTitle();
+
+  blockWordWininLost.insertAdjacentHTML(
+    'afterbegin',
+    `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
+  );
+  blockWordWininLost.insertAdjacentHTML(
+    'beforeend',
+    `<p class="word-lost-title">Nombre de mots perdu  : <button class="score-word-lost">${countLostGame}</button></p>`
+  );
+  //////////////////////////////
+  return;
+};
+
 //function Number word lost
-const numberWordLost = () => {};
+const numberWordLost = () => {
+  if (tempWordEndGame > 0) {
+    tempWordEndGame--;
+    countLostGame++;
+    countWinGame;
+    console.log('nouveau compteur word ' + tempWordEndGame);
+    let tempHit = tempCountHit - countNumberHitWord;
+    scoreHitTab.push(tempHit);
+    if (difficult == 'Facile') {
+      countNumberHitWord = 11;
+      tempCountHit = 11;
+    } else if (difficult == 'Moyen') {
+      countNumberHitWord = 9;
+      tempCountHit = 9;
+    } else {
+      countNumberHitWord = 5;
+      tempCountHit = 5;
+    }
+    reGameWordLost();
+    gameWordPendu();
+    
+  } else {
+    lostGame();
+  }
+};
 
 // function Number Word win
-const numberWordWin = () => {};
+const numberWordWin = () => {
+  if (tempWordEndGame > 0) {
+    tempWordEndGame--;
+    countLostGame;
+    countWinGame++;
+    console.log('nouveau compteur word ' + tempWordEndGame);
+    let tempHit = tempCountHit - countNumberHitWord;
+    scoreHitTab.push(tempHit);
+    reGameWordLost();
+  }
+};
