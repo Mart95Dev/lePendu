@@ -617,7 +617,6 @@ let countWinLostTitle = 0;
 let countLostGame = 0;
 let countWinGame = 0;
 let scoreHitTab = [];
-let resetBtnAlphabet = false;
 
 const gameWordPendu = () => {
   const hideWord = document.querySelector('.hideword');
@@ -680,7 +679,7 @@ const gameWordPendu = () => {
     'Aseptiser',
     'Autoroute',
     'Avalanche',
-    'Balalaïka',
+    'Balalaika',
     'Bilboquet',
     'Bourricot',
     'Brillance',
@@ -717,14 +716,14 @@ const gameWordPendu = () => {
     'Azimut',
     'Babine',
     'Balade',
-    'Bonzaï',
+    'Bonzai',
     'Basson',
     'Billet',
     'Bouche',
     'Boucle',
     'Bronze',
     'Cabane',
-    'Caïman',
+    'Caiman',
     'Cloche',
     'Cheque',
     'Cirage',
@@ -1173,7 +1172,6 @@ const reGameWordLost = () => {
   );
   ////////////////////////////////
   resetWinLostTitle();
-
   blockWordWininLost.insertAdjacentHTML(
     'afterbegin',
     `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
@@ -1192,7 +1190,7 @@ const numberWordLost = () => {
     tempWordEndGame--;
     countLostGame++;
     countWinGame;
-    console.log('nouveau compteur word ' + tempWordEndGame);
+    console.log('nouveau word ' + tempWordEndGame);
     let tempHit = tempCountHit - countNumberHitWord;
     scoreHitTab.push(tempHit);
     if (difficult == 'Facile') {
@@ -1207,7 +1205,6 @@ const numberWordLost = () => {
     }
     reGameWordLost();
     gameWordPendu();
-    
   } else {
     lostGame();
   }
