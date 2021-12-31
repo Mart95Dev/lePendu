@@ -617,6 +617,7 @@ let countWinLostTitle = 0;
 let countLostGame = 0;
 let countWinGame = 0;
 let scoreHitTab = [];
+let resetDisplayLetter = 0;
 
 const gameWordPendu = () => {
   const hideWord = document.querySelector('.hideword');
@@ -782,6 +783,7 @@ const gameWordPendu = () => {
   wordHide.textContent = wordDisplayHide;
   hideWord.appendChild(wordHide);
   let displayLetter = [...wordDisplayHide]; // extend hide word in array
+  console.log('mot caché avant sélection alphabet ' + displayLetter);
 
   countWinLostTitle++;
 
@@ -832,10 +834,12 @@ const gameWordPendu = () => {
         'beforeend',
         `<button id="${buttonLetter}" class="btn-letter-seek">${buttonLetter}</button>`
       );
-
       /////////////////////////////
+
       displayLetter = seekLetter(buttonLetter);
-      console.log(displayLetter);
+      console.log(
+        'mot caché en sélectionnant les lettres alaphabet ' + displayLetter
+      );
       if (!letterFound) {
         // if choice letter is not found - draw pendu
         console.log('compteur au debut ' + count);
@@ -866,6 +870,7 @@ const gameWordPendu = () => {
           winGame();
         } else {
           if (tempWordEndGame > 1) {
+            console.log('non fait encore');
           }
         }
       }
