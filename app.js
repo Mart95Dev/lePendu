@@ -1034,53 +1034,45 @@ const hitNumber = () => {
   );
 };
 
-//function smiley score lost
-const smileysLost = () => {
+//function smileys
+const smileysEnd = () => {
   const smileyWordHit = document.getElementById('img');
-  if (countLostGame === 0) {
-    let scorePercentLost =
-      ((wordEndGame - tempWordEndGame) / wordEndGame) * 100;
-
-    if (scorePercentLost < 26) {
-      smileyWordHit.setAttribute('src', '/svg/en-colere.svg');
-    }
-    if (scorePercentLost > 25 && scorePercentLost < 51) {
-      smileyWordHit.setAttribute('src', 'svg/malheureux.svg');
-    }
-    if (scorePercentLost > 50 && scorePercentLost < 76) {
-      smileyWordHit.setAttribute('src', '/svg/sourire.svg');
-    }
-    if (scorePercentLost > 75) {
-      smileyWordHit.setAttribute('src', '/svg/heureux.svg');
-    }
-    return;
+  let scorePercentEnd = '';
+  if (countNumberHitWord === 0) {
+    scorePercentEnd = ((wordEndGame - tempWordEndGame) / wordEndGame) * 100;
+  } else {
+    scorePercentEnd = (tempWordEndGame / wordEndGame) * 100;
   }
+
+  if (scorePercentEnd < 26) {
+    smileyWordHit.setAttribute('src', '/svg/en-colere.svg');
+  }
+  if (scorePercentEnd > 25 && scorePercentEnd < 51) {
+    smileyWordHit.setAttribute('src', 'svg/malheureux.svg');
+  }
+  if (scorePercentEnd > 50 && scorePercentEnd < 76) {
+    smileyWordHit.setAttribute('src', '/svg/sourire.svg');
+  }
+  if (scorePercentEnd > 75) {
+    smileyWordHit.setAttribute('src', '/svg/heureux.svg');
+  }
+  return;
 };
 
-// function smiley score win
-const smileysWin = () => {
-  const smileyWordHit = document.getElementById('img');
-  if (countWinGame === 0) {
-    let scorePercentWin = (tempWordEndGame / wordEndGame) * 100;
-
-    if (scorePercentWin < 26) {
-      smileyWordHit.setAttribute('src', '/svg/en-colere.svg');
-    }
-    if (scorePercentWin > 25 && scorePercentWin < 51) {
-      smileyWordHit.setAttribute('src', 'svg/malheureux.svg');
-    }
-    if (scorePercentWin > 50 && scorePercentWin < 76) {
-      smileyWordHit.setAttribute('src', '/svg/sourire.svg');
-    }
-    if (scorePercentWin > 75) {
-      smileyWordHit.setAttribute('src', '/svg/heureux.svg');
-    }
-    return;
+//function modale end
+const modalEnd = () => {
+  let numberWordEndGame = 0;
+  let percentWord = 0;
+  let numberHitEndGame = 0;
+  if (countNumberHitWord === 0) {
+    numberWordEndGame = wordEndGame - tempWordEndGame;
+    percentWord = ((wordEndGame - tempWordEndGame) / wordEndGame) * 100;
+    numberHitEndGame = tempCountHit;
+  } else {
+    numberWordEndGame = tempWordEndGame;
+    percentWord = (tempWordEndGame / wordEndGame) * 100;
+    numberHitEndGame = (countNumberHitWord - tempCountHit) * -1;
   }
-};
-
-//Function modale end lost
-const modalEndLost = () => {
   contentGame.classList.remove('active');
   contentGame.classList.add('modal-game');
   modalLostWinGame.classList.add('active');
@@ -1088,13 +1080,9 @@ const modalEndLost = () => {
   modalLostWinGame.insertAdjacentHTML(
     'afterbegin',
     `<div class="lost-win">
-        <p class="win-lost-text1">MALHEUREUSEMENT ! ${nameOne.toUpperCase()}, vous avez perdu la partie !</p>
-        <p class="win-lost-text2"> Vous avez trouvé <button class="total-word">${
-          wordEndGame - tempWordEndGame
-        } </button> mot, soit <button class="word-percent">${
-      ((wordEndGame - tempWordEndGame) / wordEndGame) * 100
-    }%</button> du total des mots choisis</p>
-       <p class="win-lost-text2"> Il vous a fallu <button class="total-hit">${tempCountHit}</button> tentatives  / <button class="total-hit">${tempCountHit} </button> pour essayer de retrouver le mot caché</p> 
+        <p class="win-lost-text1">MALHEUREUSEMENT ! ${nameOne.toUpperCase()}, vous avez perdu la partie </p>
+        <p class="win-lost-text2"> Vous avez trouvé <button class="total-word">${numberWordEndGame} </button> mot, soit <button class="word-percent">${percentWord}%</button> du total des mots choisis</p>
+       <p class="win-lost-text2"> Il vous a fallu <button class="total-hit">${numberHitEndGame}</button> tentatives  / <button class="total-hit">${tempCountHit} </button> pour essayer de retrouver le mot caché</p> 
        <div class="smileys">          
        <div class="smiley-word-hit"><img id="img"></div>
    </div>
@@ -1103,90 +1091,28 @@ const modalEndLost = () => {
   return;
 };
 
-// function modale end win
-const modalEndWin = () => {
-  contentGame.classList.remove('active');
-  contentGame.classList.add('modal-game');
-  modalLostWinGame.classList.add('active');
-  modalLostWinGame.classList.remove('modal-win-lost-game');
-  modalLostWinGame.insertAdjacentHTML(
-    'afterbegin',
-    `<div class="lost-win">
-          <p class="win-lost-text1">FELICITATION ! ${nameOne.toUpperCase()} vous avez gagné(é) la partie</p>
-          <p class="win-lost-text2"> Vous avez trouvé <button class="total-word">${tempWordEndGame} </button> mot, soit <button class="word-percent">${
-      (tempWordEndGame / wordEndGame) * 100
-    }%</button> du total des mots choisis</p>
-         <p class="win-lost-text2"> Il vous a fallu <button class="total-hit">${
-           (countNumberHitWord - tempCountHit) * -1
-         }   </button> tentatives  / <button class="total-hit">${tempCountHit} </button>  pour retrouver le mot en intégralité</p> 
-         <div class="smileys">          
-         <div class="smiley-word-hit"><img id="img"></div>
-     </div> 
-      </div>`
-  );
-  return;
-};
-
 //function lost game choice word one
+// variable countLostGame et countWinGame sont utile pour le mode jeu avec plusieurs mots possible en suspend pour l'instant
 const lostGame = () => {
   if (countLostGame === 0) {
-    modalEndLost();
-    smileysLost();
+    modalEnd();
+    smileysEnd();
   } else {
     resetScoreWordAndHit();
-    modalEndLost();
-
-    /*  contentGame.classList.remove('active');
-    contentGame.classList.add('modal-game');
-    modalLostWinGame.classList.add('active');
-    modalLostWinGame.classList.remove('modal-win-lost-game');
-    modalLostWinGame.insertAdjacentHTML(
-      'afterbegin',
-      `<div class="lost-win">
-          <p class="win-lost-text1">MALHEUREUSEMENT ! ${nameOne.toUpperCase()}, vous avez perdu le jeu</p>
-          <p class="win-lost-text2"> Vous avez retrouvé <button class="total-word">${
-            wordEndGame - tempWordEndGame
-          } </button> mot, soit <button class="word-percent">${
-        ((wordEndGame - tempWordEndGame) / wordEndGame) * 100
-      }%</button> du total des mots choisis</p>
-         <p class="win-lost-text2"> Il vous a fallu <button class="total-hit">${tempCountHit}</button> tentatives  / <button class="total-hit">${tempCountHit} </button>  pour essayer de retrouver le mot caché</p> 
-         <div class="smileys">          
-         <div class="smiley-word-hit"><img id="img"></div>
-     </div>
-      </div>`
-    ); */
-    smileysLost();
+    modalEnd();
+    smileysEnd();
   }
 };
 
 // function win game choice word one
 const winGame = () => {
   if (countWinGame === 0) {
-    modalEndWin();
-    smileysWin();
+    modalEnd();
+    smileysEnd();
   } else {
     resetScoreWordAndHit();
-    modalEndWin();
-    /* contentGame.classList.remove('active');
-    contentGame.classList.add('modal-game');
-    modalLostWinGame.classList.add('active');
-    modalLostWinGame.classList.remove('modal-win-lost-game');
-    modalLostWinGame.insertAdjacentHTML(
-      'afterbegin',
-      `<div class="lost-win">
-          <p class="win-lost-text1">FELICITATION ! ${nameOne.toUpperCase()} vous avez gagné le jeu</p>
-          <p class="win-lost-text2"> Vous avez retrouvé <button class="total-word">${tempWordEndGame} </button> mot, soit <button class="word-percent">${
-        (tempWordEndGame / wordEndGame) * 100
-      }%</button> du total des mots choisis</p>
-         <p class="win-lost-text2"> Il vous a fallu <button class="total-hit">${
-           tempCountHit - countNumberHitWord
-         }   </button> tentatives  / <button class="total-hit">${tempCountHit} </button>  pour retrouver le mot en intégralité</p> 
-         <div class="smileys">          
-              <div class="smiley-word-hit"><img id="img"></div>
-          </div>
-      </div>`
-    ); */
-    smileysWin();
+    modalEnd();
+    smileysEnd();
   }
 };
 // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
