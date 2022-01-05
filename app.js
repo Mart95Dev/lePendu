@@ -1061,14 +1061,17 @@ const smileysEnd = () => {
 
 //function modale end
 const modalEnd = () => {
+  let titleEndGame = '';
   let numberWordEndGame = 0;
   let percentWord = 0;
   let numberHitEndGame = 0;
   if (countNumberHitWord === 0) {
+    titleEndGame = `MALHEUREUSEMENT ! ${nameOne.toUpperCase()}, vous avez perdu la partie `;
     numberWordEndGame = wordEndGame - tempWordEndGame;
     percentWord = ((wordEndGame - tempWordEndGame) / wordEndGame) * 100;
     numberHitEndGame = tempCountHit;
   } else {
+    titleEndGame = `SUPER ! ${nameOne.toUpperCase()}, vous avez gagné la partie `;
     numberWordEndGame = tempWordEndGame;
     percentWord = (tempWordEndGame / wordEndGame) * 100;
     numberHitEndGame = (countNumberHitWord - tempCountHit) * -1;
@@ -1080,7 +1083,7 @@ const modalEnd = () => {
   modalLostWinGame.insertAdjacentHTML(
     'afterbegin',
     `<div class="lost-win">
-        <p class="win-lost-text1">MALHEUREUSEMENT ! ${nameOne.toUpperCase()}, vous avez perdu la partie </p>
+        <p class="win-lost-text1">${titleEndGame}</p>
         <p class="win-lost-text2"> Vous avez trouvé <button class="total-word">${numberWordEndGame} </button> mot, soit <button class="word-percent">${percentWord}%</button> du total des mots choisis</p>
        <p class="win-lost-text2"> Il vous a fallu <button class="total-hit">${numberHitEndGame}</button> tentatives  / <button class="total-hit">${tempCountHit} </button> pour essayer de retrouver le mot caché</p> 
        <div class="smileys">          
