@@ -1,5 +1,7 @@
+//// import base words ///////////
+import { words } from './base.js';
+/////////////////////////////////
 ////////////// canvas one gamer ////////////////////
-
 const canvas = document.getElementById('draw1');
 const ctx = canvas.getContext('2d');
 canvas.width = 350;
@@ -270,58 +272,6 @@ drawPenduLevelDifficult.set(3, body);
 drawPenduLevelDifficult.set(4, armLevelDifficult);
 drawPenduLevelDifficult.set(5, footLevelDifficult);
 
-////////////// canvas two gamers ///////////////////////
-
-/* const reset = document.getElementById('reset');
-let color = document.getElementById('color');
-
-const canvasTwo = document.getElementById('draw2');
-const ctxTwo = canvasTwo.getContext('2d');
-canvasTwo.width = 350;
-canvasTwo.height = 450;
-
-const colorCanvas = (e) => {
-  color = e.target.value;
-  console.log(color);
-};
-
-color.addEventListener('input', colorCanvas); */
-
-// fucntion mouse position = moveTo on canvasTwo
-/* const getMousePosition = (e) => {
-  const rect = canvasTwo.getBoundingClientRect();
-  return {
-    x: e.clientX - rect.left,
-    y: e.clientY - rect.top,
-  };
-};
-// function mouseMove = LineTo on canvasTwo
-const mouseMove = (e) => {
-  const mousePos = getMousePosition(e);
-  ctxTwo.lineTo(mousePos.x, mousePos.y);
-  ctxTwo.stroke();
-  ctxTwo.strokeStyle = color;
-  ctxTwo.lineWidth = 10;
-};
-
-// event on canvasTwo with mouse
-canvasTwo.addEventListener('mousedown', (e) => {
-  e.preventDefault();
-  const mousePos = getMousePosition(e);
-  ctxTwo.beginPath();
-  ctxTwo.moveTo(mousePos.x, mousePos.y);
-
-  canvasTwo.addEventListener('mousemove', mouseMove);
-  canvasTwo.addEventListener('mouseup', () => {
-    canvasTwo.removeEventListener('mousemove', mouseMove);
-  });
-});
-
-// event reset canvasTwo
-reset.addEventListener('click', () => {
-  ctxTwo.clearRect(0, 0, canvasTwo.width, canvasTwo.height);
-}); */
-
 ///////////////////// MODALES ///////////////////////////////
 
 const modalRule = document.querySelector('.modal-rules');
@@ -404,12 +354,7 @@ pseudoOne.addEventListener('input', (e) => {
   temp = [];
 });
 
-/* pseudoTwo.addEventListener('input', (e) => {
-  let two = e.target.value;
-  temp.push(two);
-  nameTwo = temp.pop();
-  temp = [];
-}); */
+//// ici script pseudo two ////
 
 // choice number word
 //-- modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
@@ -434,9 +379,11 @@ levelGame.forEach((level) => {
 
 /// verified input
 const verify = () => {
-  /* numberPlayer === null ||  dans le if*/
   // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-  if (difficult === null && nameOne === null /* && wordEndGame === null */) {
+  if (
+    difficult === null &&
+    nameOne === null /* && wordEndGame === null */ /* numberPlayer === null ||*/
+  ) {
     alert('Veuillez renseigner tous les paramètres');
     error = true;
     return;
@@ -452,11 +399,8 @@ const verify = () => {
     alert('Veuillez saisir le pseudo 1');
     error = true;
     return;
-  } /* else if (numberPlayer == 2 && nameTwo === null) {
-    alert('Veuillez saisir le pseudo 2');
-    error = true;
-    return;
-  } */
+  } //// ici condition pseudo two //////
+ 
 
   // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
   /* if (number === 0) {
@@ -635,145 +579,13 @@ const gameWordPendu = () => {
   const hideWord = document.querySelector('.hideword');
   let wordDisplayHide = '';
   wordHide.classList.add('content-hide-word');
-  //base of words
-  const words = [
-    'physique',
-    'voiture',
-    'argentine',
-    'forestier',
-    'voyage',
-    'australie',
-    'etats-unies',
-    'echelle',
-    'autoroute',
-    'constitution',
-    'histoire',
-    'geographie',
-    'Baccalaureat',
-    'Abracadabra',
-    'Francophile',
-    'Pandemonium',
-    'Chlorophylle',
-    'Metallurgie',
-    'Metamorphose',
-    'Montgolfiere',
-    'Kaleidoscope',
-    'Conquistador',
-    'Conspirateur',
-    'Rhododendron',
-    'Qualification',
-    'Protozoaire',
-    'Quadrilatere',
-    'Zygomatique',
-    'Sorcellerie',
-    'Belligerant',
-    'Acrostiche',
-    'Apocalypse',
-    'Attraction',
-    'Aventurier',
-    'Bouillotte',
-    'Citrouille',
-    'Controverse',
-    'Coquelicot',
-    'Dissimuler',
-    'Flibustier',
-    'Forestiere',
-    'Grenouille',
-    'Impossible',
-    'Labyrinthe',
-    'Maharadjah',
-    'Prudemment',
-    'Quadriceps',
-    'Soliloquer',
-    'Subjective',
-    'Accordeon',
-    'Ascenseur',
-    'Ascension',
-    'Aseptiser',
-    'Autoroute',
-    'Avalanche',
-    'Balalaika',
-    'Bilboquet',
-    'Bourricot',
-    'Brillance',
-    'Cabriolet',
-    'Contrario',
-    'Cornemuse',
-    'Dangereux',
-    'epluchage',
-    'Feodalite',
-    'Forteresse',
-    'Gondolier',
-    'Graphique',
-    'Horoscope',
-    'Intrepide',
-    'Klaxonner',
-    'Mascarade',
-    'Metaphore',
-    'Narrateur',
-    'Peripetie',
-    'Populaire',
-    'Printemps',
-    'Quemander',
-    'Tambourin',
-    'Vestiaire',
-    'Xylophone',
-    'Acajou',
-    'Agneau',
-    'Alarme',
-    'Ananas',
-    'Angora',
-    'Animal',
-    'Arcade',
-    'Aviron',
-    'Azimut',
-    'Babine',
-    'Balade',
-    'Bonzai',
-    'Basson',
-    'Billet',
-    'Bouche',
-    'Boucle',
-    'Bronze',
-    'Cabane',
-    'Caiman',
-    'Cloche',
-    'Cheque',
-    'Cirage',
-    'Coccyx',
-    'Crayon',
-    'Garage',
-    'Gospel',
-    'Goulot',
-    'Gramme',
-    'Grelot',
-    'Guenon',
-    'Hochet',
-    'Hormis',
-    'Humour',
-    'Hurler',
-    'Jargon',
-    'Limite',
-    'Lionne',
-    'Menthe',
-    'Oiseau',
-    'Podium',
-    'Poulpe',
-    'Poumon',
-    'Puzzle',
-    'Quartz',
-    'Rapide',
-    'Seisme',
-    'Tetine',
-    'Tomate',
-    'Walabi',
-    'Whisky',
-  ];
 
   // Choice word
   let wordRandomArray = words[Math.floor(Math.random() * words.length)];
+  console.log(wordRandomArray);
   tempWord.push(wordRandomArray.toUpperCase());
-  selectWord = wordRandomArray.toString().toUpperCase();
+
+  let selectWord = wordRandomArray.toString().toUpperCase();
   console.log(selectWord);
 
   if (tempWord.length > 1) {
@@ -787,14 +599,14 @@ const gameWordPendu = () => {
 
     wordRandomArray = words[Math.floor(Math.random() * words.length)];
     console.log('word random apres if ' + wordRandomArray);
-    let selectWord = wordRandomArray.toString().toUpperCase();
+    selectWord = wordRandomArray.toString().toUpperCase();
   }
   //////////////////////////////////////
   wordDisplayHide = selectWord.replace(/[A-Z]/g, '_'); //replace letter for "_" via regex
   //display hide word
   wordHide.textContent = wordDisplayHide;
   hideWord.appendChild(wordHide);
-  displayLetter = [...wordDisplayHide]; // extend hide word in array
+  let displayLetter = [...wordDisplayHide]; // extend hide word in array
   console.log('mot caché avant sélection alphabet ' + displayLetter);
 
   // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
