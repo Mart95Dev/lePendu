@@ -1,9 +1,18 @@
 /* ---- style modal rules ---- */
+h1 {
+  text-align: center;
+  color: white;
+  margin: 2px auto 2px;
+}
 
 h2 {
   text-align: left;
   margin: 15px 0 15px;
   padding-left: 10px;
+}
+
+li {
+  margin-left: 30px;
 }
 
 .begin {
@@ -25,16 +34,6 @@ h2 {
 .rules {
   padding: 10px;
   text-align: justify;
-}
-
-h1 {
-  text-align: center;
-  color: white;
-  margin: 2px auto 2px;
-}
-
-li {
-  margin-left: 30px;
 }
 
 .container-text {
@@ -59,12 +58,13 @@ h1 {
 
 /* -- temporary --*/
 
-.progress {
-  font-size: 12px;
-  margin-left: 15px;
-  color: white;
-  opacity: 0.2;
-  font-style: italic;
+.progress,
+.style-gamer {
+  font-size: 14px;
+  margin-left: 10px;
+  color: white; 
+font-weight: 400;
+font-style: italic;
 }
 /*------------------*/
 
@@ -105,7 +105,7 @@ h1 {
 }
 
 .input-player {
-  width: 75px;
+  width: 100px;
   height: 20px;
   margin-left: 10px;
 }
@@ -149,14 +149,12 @@ input[type='radio']:checked + label {
   background-color: coral;
 }
 
-.boxDisabled {
-  pointer-events: none;
+.boxDisabled {  
   opacity: 0.2;
 }
 
 /* -- letters seek -- */
-.btn-letter-seek {
-  pointer-events: none;
+.btn-letter-seek { 
   background-color: rgb(255, 127, 80);
 }
 
@@ -192,9 +190,9 @@ canvas {
   height: 450px;
 }
 
-.custom {
+/* .custom {
   cursor: url(../img/stylo32.png) 0 32, crosshair;
-}
+} */
 
 /*----- end style canvas --- */
 
@@ -218,37 +216,23 @@ body {
 }
 
 /* ---- style game ---- */
-.modal-rules {
-  opacity: 0;
-  display: none;
-}
-
-.modal-parameter {
-  opacity: 0;
-  display: none;
-}
-
-.modal-game {
-  opacity: 0;
-  display: none;
+.modal-game { 
   font-size: 20px;
 }
 
-.modal-stop-game {
-  opacity: 0;
-  display: none;
-}
-
-.modal-win-lost-game {
+.modal-stop-game,
+.modal-win-lost-game,
+.modal-game,
+.modal-parameter,
+.modal-rules,
+.container-video {
   opacity: 0;
   display: none;
 }
 
 .active {
   display: visible;
-  opacity: 1;
-  /* animation-duration: 4ms;
-  transition: ease-in-out; */
+  opacity: 1;  
 }
 
 /* --------- content game ---- */
@@ -280,12 +264,10 @@ body {
 
 .btn-style-choice-parameters {
   width: auto;
-  padding: 8px;
-  pointer-events: none;
+  padding: 8px;  
 }
 
-.btn-style-choice-word-game {
-  pointer-events: none;
+.btn-style-choice-word-game {  
   font-size: 16px;
 }
 
@@ -331,6 +313,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 button:hover {
@@ -350,8 +333,19 @@ button {
 .hit,
 .score-word-win,
 .score-word-lost,
-.rest-choice-word-win-game {
-  pointer-events: none;
+.rest-choice-word-win-game,
+.btn-style-choice-word-game,
+.btn-style-choice-parameters,
+.btn-letter-seek,
+.boxDisabled,
+.btn-end-display  {
+  pointer-events: none; 
+}
+
+.hit,
+.score-word-win,
+.score-word-lost,
+.rest-choice-word-win-game {  
   background-color: rgba(233, 158, 20, 0.979);
   color: black;
   font-weight: 500;
@@ -513,4 +507,20 @@ img{
   text-align: center;
   font-size: 16px;
   margin-bottom: 10px;
+}
+
+
+.container-video{
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 53%;
+  height: 58%;  
+  background-color: black;  
+}
+
+.mp4 {     
+  width: 100%; 
 }

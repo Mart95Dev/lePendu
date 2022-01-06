@@ -400,7 +400,6 @@ const verify = () => {
     error = true;
     return;
   } //// ici condition pseudo two //////
- 
 
   // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
   /* if (number === 0) {
@@ -692,24 +691,26 @@ const gameWordPendu = () => {
       /// verify hit number and count drawPenduLevel ////
       if (!displayLetter.includes('_')) {
         if (tempWordEndGame === 1) {
-          winGame();
-        } else {
+          modalEnd();
+          smileysEnd();
+        } /* else {
           if (tempWordEndGame > 1) {
             console.log('non fait encore');
           }
-        }
+        } */
       }
 
       if (countNumberHitWord === 0) {
         if (tempWordEndGame === 1) {
-          lostGame();
-        } else {
+          modalEnd();
+          smileysEnd();
+        } /* else {
           if (tempWordEndGame > 1) {
-            /*  numberWordLost(); */
-            /* console.log('fonction numberWordLost fini de travailler'); */
+             numberWordLost();
+            console.log('fonction numberWordLost fini de travailler');
             console.log('non fait encore');
           }
-        }
+        } */
       }
     });
   });
@@ -786,10 +787,16 @@ const resetWinLostTitle = () => {
   return;
 };
 
-//function ???
+//function reset score hit and score word
 const resetScoreWordAndHit = () => {
   const lostWinDom = document.querySelector('.lost-win');
   lostWinDom.remove();
+};
+
+//function no visible modal stopGame
+const noVisibleStopGame = () => {
+  stopGame.classList.remove('active');
+  stopGame.classList.add('modal-stop-game');
 };
 
 // button choice stop game
@@ -808,23 +815,20 @@ const btnGame = document.querySelector('.go-game');
 btnGame.addEventListener('click', () => {
   contentGame.classList.add('active');
   contentGame.classList.remove('modal-game');
-  stopGame.classList.remove('active');
-  stopGame.classList.add('modal-stop-game');
+  noVisibleStopGame();
 });
 
 // button go game 2
 const btnGame2 = document.querySelector('.go-game-2');
 btnGame2.addEventListener('click', () => {
-  stopGame.classList.remove('active');
-  stopGame.classList.add('modal-stop-game');
+  noVisibleStopGame();
   window.location.replace('index.html');
 });
 
 // button stop game
 const stopG = document.querySelector('.stop');
 stopG.addEventListener('click', () => {
-  stopGame.classList.remove('active');
-  stopGame.classList.add('modal-stop-game');
+  noVisibleStopGame();
   window.location.replace('https://www.google.fr');
 });
 
@@ -844,6 +848,12 @@ const hitNumber = () => {
     'afterbegin',
     `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
   );
+};
+
+// function video end lost game
+const playVideo = () => {
+  const videoEnd = document.getElementById('playVid');
+  vide.play();
 };
 
 //function smileys
@@ -895,9 +905,8 @@ const modalEnd = () => {
   modalLostWinGame.insertAdjacentHTML(
     'afterbegin',
     `<div class="lost-win">
-        <p class="win-lost-text1">${titleEndGame}</p>
-        <p class="win-lost-text2"> Vous avez trouvé <button class="total-word">${numberWordEndGame} </button> mot, soit <button class="word-percent">${percentWord}%</button> du total des mots choisis</p>
-       <p class="win-lost-text2"> Il vous a fallu <button class="total-hit">${numberHitEndGame}</button> tentatives  / <button class="total-hit">${tempCountHit} </button> pour essayer de retrouver le mot caché</p> 
+        <p class="win-lost-text1">${titleEndGame}</p>        
+       <p class="win-lost-text2"> Il vous a fallu <button class="total-hit btn-end-display">${numberHitEndGame}</button> tentatives  / <button class="total-hit btn-end-display">${tempCountHit} </button> pour essayer de retrouver le mot caché</p> 
        <div class="smileys">          
        <div class="smiley-word-hit"><img id="img"></div>
    </div>
@@ -908,7 +917,7 @@ const modalEnd = () => {
 
 //function lost game choice word one
 // variable countLostGame et countWinGame sont utile pour le mode jeu avec plusieurs mots possible en suspend pour l'instant
-const lostGame = () => {
+/* const lostGame = () => {
   if (countLostGame === 0) {
     modalEnd();
     smileysEnd();
@@ -929,7 +938,7 @@ const winGame = () => {
     modalEnd();
     smileysEnd();
   }
-};
+}; */
 // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
 //function re-game when word lost
 /* const reGameWordLost = () => {
@@ -998,3 +1007,5 @@ const numberWordLost = () => {
     reGameWordLost();
   }
 }; */
+///////////////////////////////////////////////////
+////////////////////////////////////////////////////

@@ -27,16 +27,16 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
                         </p>
                     </div>
                 </li>
-                <li>    
+                <!-- li>    
                     <div class="rules">
                          <p><h3>Mode 2 joueurs :</h3> Deux participants s'affrontent mutuellement. Chacun doit retrouver un mot. A chaque erreur, le dessin du pendu se dessinera automatiquement pour chaque joueur.                           dessine le pendu avec un stylo en suivant le tracé. Le tracé change en fonction de la difficulté choisis au démarrage du jeu. 
 
                          </p>
                     </div>
-                </li>   
+                </li>    -->
                 <li>    
                     <div class="rules">
-                         <p><h3>Règles communes :</h3> Au démarrage, des paramètres sont à choisir. Le nombre de joueur, le pseudo pour le jeu et le niveau de difficulté pour le dessin en fonction des erreurs.                         </p>
+                         <p><h3>Règles communes :</h3> Au démarrage, des paramètres sont à choisir. Le pseudo du joueur et le niveau de difficulté pour le dessin en fonction des erreurs.                         </p>
                     </div>
                 </li>   
         </ul>
@@ -47,25 +47,26 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
 </div>
 
 <div class="modal-parameter">
-    <h1>PARAMETRES</h1>
+    <h1>PARAM&Egrave;TRES</h1>
    
     <div class="box players">
         <p class="subtitle">Choix du nombre de joueur :</p>
             <div class="choice-player">
             <input type="radio" id="1" name="gamer" checked>
             <label class="btn-radio" for="1">1 joueur</label>
-            <input type="radio"id="2" name="gamer">
+            <p class="style-gamer">contre l'ordinateur par défaut</p> 
+            <!-- <input type="radio"id="2" name="gamer">
             <label class="btn-radio boxDisabled" for="2">2 joueurs</label> 
-            <p class="progress">En cours de réalisation</p>           
+            <p class="progress">En cours de réalisation</p>  -->          
          </div>
     </div>
     <div class="box names">
         <p class="subtitle">Choix du pseudo du joueur :</p>
         <div class="choice-pseudo">
-            <label for="pseudo">Joueur 1</label>
+            <label for="pseudo">Saisir le pseudo</label>
             <input class="input-player" type="text" id="p1" maxlength="10">
-            <label class="space" for="pseudo">Joueur 2</label>
-            <input class="input-player boxDisabled" type="text" id="p2" maxlength="10">
+           <!--  <label class="space" for="pseudo">Joueur 2</label>
+            <input class="input-player boxDisabled" type="text" id="p2" maxlength="10"> -->
             
         </div>
     </div>
@@ -78,7 +79,7 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
     </div> -->
     <!--------->
     <div class="box difficult">
-        <p class="subtitle">Choix du niveau de difficulté :</p>
+        <p class="subtitle">Choix du niveau de difficult&eacute; :</p>
         <div class="choice-difficult">
             <input type="radio" id="Facile" name="level">
             <label class="btn-radio" for="Facile">Facile</label>
@@ -103,8 +104,13 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
 <div class="modal-game container-game"> 
     <p class="title">LE JEU DU PENDU</p>        
          <div class="parameters"></div> 
-            <div class="container">
+            <div class="container">           
             <div class="letters">
+                <div class="container-video">
+                    <video  id="playVid" class ="mp4"  controls = "controls">
+                        <source src="./video/Lependu.mp4" type="video/mp4">
+                    </video> 
+                </div>                
                 <div class="container-hideword">                    
                     <div class="hideword"></div>                    
                 </div>
@@ -149,7 +155,8 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
             <div class="static-pendu">
                     <div class="blok-word-win-lost"></div>                    
                         <div class="modal-one-gamer">                            
-                            <canvas id="draw1"></canvas>        
+                            <canvas id="draw1"></canvas> 
+                                 
                         </div>
                             
             </div>  
