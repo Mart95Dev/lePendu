@@ -570,6 +570,7 @@ let countWinGame = 0;
 let scoreHitTab = [];
 let resetDisplayLetter = 0;
 let countTempSelectWord = 0;
+let endLost = false;
 
 const gameWordPendu = () => {
   let tempSelectWord = [];
@@ -690,17 +691,16 @@ const gameWordPendu = () => {
       /// verify hit number and count drawPenduLevel ////
       if (!displayLetter.includes('_')) {
         if (tempWordEndGame === 1) {
-          modalEnd();
-          smileysEnd();
-        } /* else {
+          playVideoEnd();
           if (tempWordEndGame > 1) {
             console.log('non fait encore');
           }
-        } */
+        }
       }
 
       if (countNumberHitWord === 0) {
         if (tempWordEndGame === 1) {
+          endLost = true;
           playVideoEnd();
         } /* else {
           if (tempWordEndGame > 1) {
@@ -847,19 +847,72 @@ const hitNumber = () => {
     `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
   );
 };
-
-// function video end lost game
+// function video end win our lost game
 const playVideoEnd = () => {
   const containerVideo = document.querySelector('.container-video');
   containerVideo.classList.add('active-video');
   containerVideo.classList.remove('container-video');
   const videoEnd = document.getElementById('playVid');
+  if (endLost) {
+    videoEnd.insertAdjacentHTML(
+      'afterbegin',
+      `<source src="./video/LePendu.mp4" type="video/mp4">`
+    );
+    videoEnd.play();
+    setTimeout(() => {
+      modalEnd();
+      smileysEnd();
+    }, 12000);
+    endLost = false;
+    return;
+  } else {
+    videoEnd.insertAdjacentHTML(
+      'afterbegin',
+      `<source src="./video/LePenduLiberer.mp4" type="video/mp4">`
+    );
+    videoEnd.play();
+    setTimeout(() => {
+      modalEnd();
+      smileysEnd();
+    }, 14000);
+    return;
+  }
+};
+
+/* // function video end lost game
+const playVideoLost = () => {
+  const containerVideo = document.querySelector('.container-video');
+  containerVideo.classList.add('active-video');
+  containerVideo.classList.remove('container-video');
+  const videoEnd = document.getElementById('playVid');
+  videoEnd.insertAdjacentHTML(
+    'afterbegin',
+    `<source src="./video/LePendu.mp4" type="video/mp4">`
+  );
   videoEnd.play();
   setTimeout(() => {
     modalEnd();
     smileysEnd();
-  }, 7500);
+  }, 12000);
+  return;
 };
+
+const playVideoWin = () => {
+  const containerVideo = document.querySelector('.container-video');
+  containerVideo.classList.add('active-video');
+  containerVideo.classList.remove('container-video');
+  const videoEnd = document.getElementById('playVid');
+  videoEnd.insertAdjacentHTML(
+    'afterbegin',
+    `<source src="./video/LePenduLiberer.mp4" type="video/mp4">`
+  );
+  videoEnd.play();
+  setTimeout(() => {
+    modalEnd();
+    smileysEnd();
+  }, 14000);
+  return;
+}; */
 
 //function smileys
 const smileysEnd = () => {
