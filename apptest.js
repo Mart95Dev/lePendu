@@ -905,7 +905,8 @@ const modalEnd = () => {
   modalLostWinGame.insertAdjacentHTML(
     'afterbegin',
     `<div class="lost-win">
-        <p class="win-lost-text1">${titleEndGame}</p>        
+        <p class="win-lost-text1">${titleEndGame}</p> 
+        <p class="win-lost-text2"> Vous avez trouvé <button class="total-word btn-end-display">${numberWordEndGame} </button> mot, soit <button class="word-percent btn-end-display">${percentWord}%</button> du total des mots choisis</p>       
        <p class="win-lost-text2"> Il vous a fallu <button class="total-hit btn-end-display">${numberHitEndGame}</button> tentatives  / <button class="total-hit btn-end-display">${tempCountHit} </button> pour essayer de retrouver le mot caché</p> 
        <div class="smileys">          
        <div class="smiley-word-hit"><img id="img"></div>

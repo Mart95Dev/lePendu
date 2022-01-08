@@ -216,7 +216,7 @@ body {
 }
 
 /* ---- style game ---- */
-.modal-game { 
+.modal-game {  
   font-size: 20px;
 }
 
@@ -224,8 +224,7 @@ body {
 .modal-win-lost-game,
 .modal-game,
 .modal-parameter,
-.modal-rules,
-.container-video {
+.modal-rules {
   opacity: 0;
   display: none;
 }
@@ -234,6 +233,14 @@ body {
   display: visible;
   opacity: 1;  
 }
+
+.active-video{
+  visibility: visible;
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+}
+
 
 /* --------- content game ---- */
 
@@ -271,14 +278,23 @@ body {
   font-size: 16px;
 }
 
-.container {
+.container,
+.letters,
+.container-hideword,
+.alphabet,
+.letters-seek{
+  position: relative;
+}
+
+.container {  
   display: flex;
   justify-content: center;
   height: auto;
 }
 
 .letters {
-  width: 60%;
+  z-index: 1;
+  width: 60%; 
 }
 
 .static-pendu {
@@ -289,8 +305,15 @@ body {
 .container-hideword,
 .alphabet,
 .letters-seek,
+video {
+  z-index: 2;
+  border: 1px solid #c4c2c2;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
 .warning,
-.lost-win {
+.lost-win { 
   border: 1px solid #c4c2c2;
   border-radius: 5px;
   margin-bottom: 15px;
@@ -509,8 +532,8 @@ img{
   margin-bottom: 10px;
 }
 
-
-.container-video{
+.container-video{ 
+  visibility: hidden;
   z-index: -1;
   display: flex;
   justify-content: center;

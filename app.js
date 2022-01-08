@@ -701,8 +701,7 @@ const gameWordPendu = () => {
 
       if (countNumberHitWord === 0) {
         if (tempWordEndGame === 1) {
-          modalEnd();
-          smileysEnd();
+          playVideoEnd();
         } /* else {
           if (tempWordEndGame > 1) {
              numberWordLost();
@@ -850,9 +849,16 @@ const hitNumber = () => {
 };
 
 // function video end lost game
-const playVideo = () => {
+const playVideoEnd = () => {
+  const containerVideo = document.querySelector('.container-video');
+  containerVideo.classList.add('active-video');
+  containerVideo.classList.remove('container-video');
   const videoEnd = document.getElementById('playVid');
-  vide.play();
+  videoEnd.play();
+  setTimeout(() => {
+    modalEnd();
+    smileysEnd();
+  }, 6500);
 };
 
 //function smileys
@@ -913,98 +919,3 @@ const modalEnd = () => {
   );
   return;
 };
-
-//function lost game choice word one
-// variable countLostGame et countWinGame sont utile pour le mode jeu avec plusieurs mots possible en suspend pour l'instant
-/* const lostGame = () => {
-  if (countLostGame === 0) {
-    modalEnd();
-    smileysEnd();
-  } else {
-    resetScoreWordAndHit();
-    modalEnd();
-    smileysEnd();
-  }
-};
-
-// function win game choice word one
-const winGame = () => {
-  if (countWinGame === 0) {
-    modalEnd();
-    smileysEnd();
-  } else {
-    resetScoreWordAndHit();
-    modalEnd();
-    smileysEnd();
-  }
-}; */
-// modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-//function re-game when word lost
-/* const reGameWordLost = () => {
-  resetWordHide();
-  resetButtonSelected();
-  hitNumber();
-  resetCanvas();
-  resetDisabledLettersSeek();
-  resetChoiceWordWinGame();
-  count = 0;
-  tempWord = [];
-  //////////////////////////////////
-  boxLetters.insertAdjacentHTML(
-    'afterbegin',
-    `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
-  );
-  ////////////////////////////////
-  resetWinLostTitle();
-  blockWordWininLost.insertAdjacentHTML(
-    'afterbegin',
-    `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
-  );
-  blockWordWininLost.insertAdjacentHTML(
-    'beforeend',
-    `<p class="word-lost-title">Nombre de mots perdu  : <button class="score-word-lost">${countLostGame}</button></p>`
-  );
-  //////////////////////////////
-  return;
-};
-
-//function Number word lost
-const numberWordLost = () => {
-  if (tempWordEndGame > 0) {
-    tempWordEndGame--;
-    countLostGame++;
-    countWinGame;
-    let tempHit = tempCountHit - countNumberHitWord;
-    scoreHitTab.push(tempHit);
-    if (difficult == 'Facile') {
-      countNumberHitWord = 11;
-      tempCountHit = 11;
-    } else if (difficult == 'Moyen') {
-      countNumberHitWord = 9;
-      tempCountHit = 9;
-    } else {
-      countNumberHitWord = 5;
-      tempCountHit = 5;
-    }
-    reGameWordLost();
-    gameWordPendu();
-  } else {
-    lostGame();
-  }
-}; */
-////////////////////////////////////
-
-// function Number Word win
-/* const numberWordWin = () => {
-  if (tempWordEndGame > 0) {
-    tempWordEndGame--;
-    countLostGame;
-    countWinGame++;
-    console.log('nouveau compteur word ' + tempWordEndGame);
-    let tempHit = tempCountHit - countNumberHitWord;
-    scoreHitTab.push(tempHit);
-    reGameWordLost();
-  }
-}; */
-///////////////////////////////////////////////////
-////////////////////////////////////////////////////
