@@ -858,7 +858,7 @@ const playVideoEnd = () => {
   setTimeout(() => {
     modalEnd();
     smileysEnd();
-  }, 6500);
+  }, 7500);
 };
 
 //function smileys

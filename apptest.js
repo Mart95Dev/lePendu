@@ -702,8 +702,7 @@ const gameWordPendu = () => {
 
       if (countNumberHitWord === 0) {
         if (tempWordEndGame === 1) {
-          modalEnd();
-          smileysEnd();
+          videoEnd();
         } /* else {
           if (tempWordEndGame > 1) {
              numberWordLost();
@@ -851,9 +850,16 @@ const hitNumber = () => {
 };
 
 // function video end lost game
-const playVideo = () => {
+const playVideoEnd = () => {
+  const containerVideo = document.querySelector('.container-video');
+  containerVideo.classList.add('active-video');
+  containerVideo.classList.remove('container-video');
   const videoEnd = document.getElementById('playVid');
-  vide.play();
+  videoEnd.play();
+  setTimeout(() => {
+    modalEnd();
+    smileysEnd();
+  }, 7500);
 };
 
 //function smileys
