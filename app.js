@@ -389,7 +389,7 @@ const verify = () => {
     return;
   }
 
-  if (nameOne === null /* && nameTwo === null */) {
+  if (nameOne === null || nameOne === '' /* && nameTwo === null */) {
     alert('Vous avez oublié de saisir les pseudos');
     error = true;
     return;
