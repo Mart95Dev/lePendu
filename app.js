@@ -1,6 +1,7 @@
 //// import base words ///////////
 import { words } from './base.js';
 /////////////////////////////////
+
 ////////////// canvas one gamer ////////////////////
 const canvas = document.getElementById('draw1');
 const ctx = canvas.getContext('2d');
@@ -295,12 +296,8 @@ buttonParameter.addEventListener('click', () => {
 
 ////////////// Choice parameters game ///////////////////////////
 
-const buttonGamer = document.querySelectorAll('input[name="gamer"]');
+/* const buttonGamer = document.querySelectorAll('input[name="gamer"]'); */
 const pseudoOne = document.getElementById('p1');
-const pseudoTwo = document.getElementById('p2');
-// modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-/* const numberWord = document.getElementById('word'); */
-//////////////////////////////////////////
 const levelGame = document.querySelectorAll('input[name="level"]');
 const boxLetters = document.querySelector('.letters');
 const numberHitWord = document.querySelector('.container-hideword');
@@ -313,38 +310,15 @@ const modalLostWinGame = document.querySelector('.modal-win-lost-game');
 //variables
 let temp = [];
 let nameOne = null;
-let nameTwo = null;
 let numberPlayer = 1;
-let number = null;
-// modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
 let wordEndGame = 1;
-/////////////////////////
+let number = null;
 let difficult = null;
 let error = false;
 let tabWord = 0;
 let countNumberHitWord = 0;
-let tempdifficult = 0;
 let tempCountHit = 0;
 let tempWordEndGame = 0;
-let countParameters = 0;
-let countBoxLetters = 0;
-let wordLost = 0;
-let wordWin = 0;
-let styleWord1 = '';
-let styleword2 = '';
-
-// choice player number
-/* buttonGamer.forEach((gamer) => {
-  gamer.addEventListener('click', (e) => {
-    numberPlayer = e.target.id;
-    if (numberPlayer == 1) {
-      pseudoTwo.classList.add('boxDisabled');
-    } else {
-      pseudoTwo.classList.remove('boxDisabled');
-    } 
-    gamer.setAttribute('checked', '');
-  });
-}); */
 
 //choice pseudo player
 pseudoOne.addEventListener('input', (e) => {
@@ -353,22 +327,6 @@ pseudoOne.addEventListener('input', (e) => {
   nameOne = temp.pop();
   temp = [];
 });
-
-//// ici script pseudo two ////
-
-// choice number word
-//-- modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-/* numberWord.addEventListener('input', (e) => {
-  number = parseInt(e.target.value);
-  if (isNaN(number)) {
-    alert('Veuillez saisir uniquement des chiffres !');
-    numberWord.value = '';
-    return;
-  }
-  temp.push(number);
-  wordEndGame = temp.pop();
-});*/
-///////////////////////////////////////////////////////
 
 levelGame.forEach((level) => {
   level.addEventListener('click', (e) => {
@@ -379,17 +337,13 @@ levelGame.forEach((level) => {
 
 /// verified input
 const verify = () => {
-  // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-  if (
-    difficult === null &&
-    nameOne === null /* && wordEndGame === null */ /* numberPlayer === null ||*/
-  ) {
+  if (difficult === null && nameOne === null) {
     alert('Veuillez renseigner tous les paramètres');
     error = true;
     return;
   }
 
-  if (nameOne === null || nameOne === '' /* && nameTwo === null */) {
+  if (nameOne === null || nameOne === '') {
     alert('Vous avez oublié de saisir les pseudos');
     error = true;
     return;
@@ -399,21 +353,7 @@ const verify = () => {
     alert('Veuillez saisir le pseudo 1');
     error = true;
     return;
-  } //// ici condition pseudo two //////
-
-  // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-  /* if (number === 0) {
-    alert('Veuillez Saisir un chiffre supérieur à 0 !');
-    numberWord.value = '';
-    error = true;
-    return;
-  } else if (number === null) {
-    alert('Veuillez Saisir un chiffre pour le paramètre nombre de mot !');
-    numberWord.value = '';
-    error = true;
-    return;
-  } */
-  //////////////////////////////////////////////////
+  }
 
   if (difficult === null) {
     alert('Veuillez choisir un niveau de difficulté !');
@@ -432,10 +372,6 @@ const resetInputs = () => {
   }
   pseudoOne.value = '';
   pseudoTwo.value = '';
-  // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-  /* numberWord.value = ''; */
-  ///////////////////////
-  // temporary two gammer disabled
   numberPlayer = 1;
   const idGamer = document.getElementById('1');
   idGamer.checked = true;
@@ -453,72 +389,26 @@ valid.addEventListener('click', (e) => {
     modalParameter.classList.add('modal-parameter');
     contentGame.classList.add('active');
     contentGame.classList.remove('modal-game');
-
-    if (wordEndGame === 1) {
-      styleWord1 = 'mot';
-      styleword2 = 'retrouvé';
-    } else {
-      styleWord1 = 'mots';
-      styleword2 = 'retrouvés';
-    }
+    i;
 
     tempWordEndGame = wordEndGame;
-    // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-    /*  countBoxLetters++;
-    
-    if (countBoxLetters === 1) {
-      boxLetters.insertAdjacentHTML(
-        'afterbegin',
-        `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
-      );
-    } else {
-      resetChoiceWordWinGame();
 
-      boxLetters.insertAdjacentHTML(
-        'afterbegin',
-        `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
-      );
-    } */
-    ///////////////////////////////////////
-    countParameters++;
-    if (countParameters === 1) {
-      parameters.insertAdjacentHTML(
-        'afterbegin',
-        `<p class="pseudo">Pseudo : <button class="btn-style-choice-parameters">${nameOne
-          .toString()
-          .toUpperCase()}</button></p>`
-      );
-      parameters.insertAdjacentHTML(
-        'beforeend',
-        `<p class="level">Niveau de difficulté :  <button class="btn-style-choice-parameters">${difficult
-          .toString()
-          .toUpperCase()}</button></p>`
-      );
-      parameters.insertAdjacentHTML(
-        'beforeend',
-        `<p class="word-game">Nombre de mot à trouver : <button class="btn-style-choice-word-game">${wordEndGame}</button></p>`
-      );
-    } else {
-      /* resetChoiceWordWinGame(); */
-      resetPseudoLevelWordEndGame();
-
-      parameters.insertAdjacentHTML(
-        'afterbegin',
-        `<p class="pseudo">Pseudo : <button class="btn-style-choice-parameters">${nameOne
-          .toString()
-          .toUpperCase()}</button></p>`
-      );
-      parameters.insertAdjacentHTML(
-        'beforeend',
-        `<p class="level">Niveau de difficulté :  <button class="btn-style-choice-parameters">${difficult
-          .toString()
-          .toUpperCase()}</button></p>`
-      );
-      parameters.insertAdjacentHTML(
-        'beforeend',
-        `<p class="word-game">Nombre de mot à trouver : <button class="btn-style-choice-word-game">${tempWordEndGame}</button></p>`
-      );
-    }
+    parameters.insertAdjacentHTML(
+      'afterbegin',
+      `<p class="pseudo">Pseudo : <button class="btn-style-choice-parameters">${nameOne
+        .toString()
+        .toUpperCase()}</button></p>`
+    );
+    parameters.insertAdjacentHTML(
+      'beforeend',
+      `<p class="level">Niveau de difficulté :  <button class="btn-style-choice-parameters">${difficult
+        .toString()
+        .toUpperCase()}</button></p>`
+    );
+    parameters.insertAdjacentHTML(
+      'beforeend',
+      `<p class="word-game">Nombre de mot à trouver : <button class="btn-style-choice-word-game">${wordEndGame}</button></p>`
+    );
 
     // number hit word game
     const numberHitWord = document.querySelector('.container-hideword');
@@ -534,42 +424,18 @@ valid.addEventListener('click', (e) => {
       tempCountHit = 5;
     }
 
-    tempdifficult++;
-    if (tempdifficult === 1) {
-      numberHitWord.insertAdjacentHTML(
-        'afterbegin',
-        `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
-      );
-    } else {
-      const hitNumber = document.querySelector('.number-hit');
-      hitNumber.remove();
-      numberHitWord.insertAdjacentHTML(
-        'afterbegin',
-        `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
-      );
-    }
-    /// AJOUTER MODALES EN FONCTION DU NOMBRE DE JOUEURS !!! AVEC CONDITION PLAYERS
-    ////////Verify word game and no find a new word////
-    if (tabWord === 0) {
-      gameWordPendu();
-      tabWord = 1;
-    }
+    numberHitWord.insertAdjacentHTML(
+      'afterbegin',
+      `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
+    );
+    gameWordPendu();
   }
 });
 //////////////////////////// GAME //////////////////////////////
-
 //variables
 let wordHide = document.createElement('p');
 const buttonAlphabet = document.querySelectorAll('.alphabet button');
-const blockWordWininLost = document.querySelector('.blok-word-win-lost');
 let count = 0;
-let tempWord = [];
-let countWinLostTitle = 0;
-let countLostGame = 0;
-let countWinGame = 0;
-let scoreHitTab = [];
-let resetDisplayLetter = 0;
-let countTempSelectWord = 0;
 let endLost = false;
 
 const gameWordPendu = () => {
@@ -582,56 +448,15 @@ const gameWordPendu = () => {
 
   // Choice word
   let wordRandomArray = words[Math.floor(Math.random() * words.length)];
-  tempWord.push(wordRandomArray.toUpperCase());
-
   let selectWord = wordRandomArray.toString().toUpperCase();
   console.log(selectWord);
 
-  if (tempWord.length > 1) {
-    if (tempWord.includes(selectWord)) {
-      for (let i = 0; i < words.length; i++) {
-        if (words[i] === wordRandomArray) {
-          words.splice(i, 1);
-        }
-      }
-    }
-
-    wordRandomArray = words[Math.floor(Math.random() * words.length)];
-    console.log('word random apres if ' + wordRandomArray);
-    selectWord = wordRandomArray.toString().toUpperCase();
-  }
   //////////////////////////////////////
   wordDisplayHide = selectWord.replace(/[A-Z]/g, '_'); //replace letter for "_" via regex
   //display hide word
   wordHide.textContent = wordDisplayHide;
   hideWord.appendChild(wordHide);
   let displayLetter = [...wordDisplayHide]; // extend hide word in array
-  console.log('mot caché avant sélection alphabet ' + displayLetter);
-
-  // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-  /* countWinLostTitle++;
-  if (countWinLostTitle === 1) {
-    blockWordWininLost.insertAdjacentHTML(
-      'afterbegin',
-      `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
-    );
-    blockWordWininLost.insertAdjacentHTML(
-      'beforeend',
-      `<p class="word-lost-title">Nombre de mots perdu   : <button class="score-word-lost">${countLostGame}</button></p>`
-    );
-  } else {
-    resetWinLostTitle();
-
-    blockWordWininLost.insertAdjacentHTML(
-      'afterbegin',
-      `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
-    );
-    blockWordWininLost.insertAdjacentHTML(
-      'beforeend',
-      `<p class="word-lost-title">Nombre de mots perdu  : <button class="score-word-lost">${countLostGame}</button></p>`
-    );
-  } */
-  /////////////////////////////////////
 
   //function seek letter of word
   const seekLetter = (userLetter) => {
@@ -690,82 +515,18 @@ const gameWordPendu = () => {
 
       /// verify hit number and count drawPenduLevel ////
       if (!displayLetter.includes('_')) {
-        if (tempWordEndGame === 1) {
-          playVideoEnd();
-          if (tempWordEndGame > 1) {
-            console.log('non fait encore');
-          }
-        }
+        playVideoEnd();
       }
 
       if (countNumberHitWord === 0) {
-        if (tempWordEndGame === 1) {
-          endLost = true;
-          playVideoEnd();
-        } /* else {
-          if (tempWordEndGame > 1) {
-             numberWordLost();
-            console.log('fonction numberWordLost fini de travailler');
-            console.log('non fait encore');
-          }
-        } */
+        endLost = true;
+        playVideoEnd();
       }
     });
   });
 };
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//function reset pseudo, level, wordEndGame of parameters
-const resetPseudoLevelWordEndGame = () => {
-  const level = document.querySelector('.level');
-  const pseudo = document.querySelector('.pseudo');
-  // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-  /* const wordGame = document.querySelector('.word-game'); */
-  //////////////////////////
-  level.remove();
-  pseudo.remove();
-  // modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-  /*   wordGame.remove(); */
-  ///////////////
-  return;
-};
-
-const resetWordHide = () => {
-  const displayWordHide = document.querySelector('.content-hide-word');
-  displayWordHide.remove();
-};
-
-// modification pour éliminer le choix de nombre de mot suite aux problème de non résolu sur le mot displayLetter et TempSelectWord--//
-/* const resetChoiceWordWinGame = () => {
-  const choiceLetters = document.querySelector('.box-choice-word');
-  choiceLetters.remove();
-  return;
-}; */
-///////////////////////////
-
-//function reset buttons selected
-const resetButtonSelected = () => {
-  const buttonSeek = document.querySelectorAll('.btn-letter-seek');
-  buttonSeek.forEach((letter) => {
-    letter.remove();
-  });
-};
-
-//function reset canvas and count of pendudraw
-const resetCanvas = () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  return;
-};
-
-//function reset disabled letters seek
-const resetDisabledLettersSeek = () => {
-  buttonAlphabet.forEach((btnLetter) => {
-    if (btnLetter.hasAttribute('class', 'boxDisabled')) {
-      btnLetter.removeAttribute('class', 'boxDisabled');
-    }
-  });
-  return;
-};
 
 // reset parameters gamer
 resetParameters.addEventListener('click', () => {
@@ -775,21 +536,6 @@ resetParameters.addEventListener('click', () => {
   contentGame.classList.add('modal-game');
   return;
 });
-
-// reset win and lost title
-const resetWinLostTitle = () => {
-  const wordWinTitle = document.querySelector('.word-win-title');
-  const wordLostTitle = document.querySelector('.word-lost-title');
-  wordLostTitle.remove();
-  wordWinTitle.remove();
-  return;
-};
-
-//function reset score hit and score word
-const resetScoreWordAndHit = () => {
-  const lostWinDom = document.querySelector('.lost-win');
-  lostWinDom.remove();
-};
 
 //function no visible modal stopGame
 const noVisibleStopGame = () => {
@@ -838,7 +584,7 @@ stopG2.addEventListener('click', () => {
   window.location.replace('https://www.google.fr');
 });
 
-//function remove dom hit
+//function that decreases the number of attempts
 const hitNumber = () => {
   const numberHit = document.querySelector('.number-hit');
   numberHit.remove();
@@ -847,7 +593,7 @@ const hitNumber = () => {
     `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
   );
 };
-// function video end win our lost game
+// video function that triggers depending on the end of the game: win or lose
 const playVideoEnd = () => {
   const containerVideo = document.querySelector('.container-video');
   containerVideo.classList.add('active-video');
@@ -879,42 +625,7 @@ const playVideoEnd = () => {
   }
 };
 
-/* // function video end lost game
-const playVideoLost = () => {
-  const containerVideo = document.querySelector('.container-video');
-  containerVideo.classList.add('active-video');
-  containerVideo.classList.remove('container-video');
-  const videoEnd = document.getElementById('playVid');
-  videoEnd.insertAdjacentHTML(
-    'afterbegin',
-    `<source src="./video/LePendu.mp4" type="video/mp4">`
-  );
-  videoEnd.play();
-  setTimeout(() => {
-    modalEnd();
-    smileysEnd();
-  }, 12000);
-  return;
-};
-
-const playVideoWin = () => {
-  const containerVideo = document.querySelector('.container-video');
-  containerVideo.classList.add('active-video');
-  containerVideo.classList.remove('container-video');
-  const videoEnd = document.getElementById('playVid');
-  videoEnd.insertAdjacentHTML(
-    'afterbegin',
-    `<source src="./video/LePenduLiberer.mp4" type="video/mp4">`
-  );
-  videoEnd.play();
-  setTimeout(() => {
-    modalEnd();
-    smileysEnd();
-  }, 14000);
-  return;
-}; */
-
-//function smileys
+//smileys function which is displayed according to the number of attempts made to find the word
 const smileysEnd = () => {
   const smileyWordHit = document.getElementById('img');
   let scorePercentEnd = '';
@@ -939,7 +650,7 @@ const smileysEnd = () => {
   return;
 };
 
-//function modale end
+//function that displays the end modal with the smiley face and the percentage and number of attempts
 const modalEnd = () => {
   let titleEndGame = '';
   let numberWordEndGame = 0;

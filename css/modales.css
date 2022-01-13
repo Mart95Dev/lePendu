@@ -1,0 +1,91 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  background-color: rgb(49, 88, 88);
+  color: white;
+  padding: 10px;
+  margin: auto;
+  height: 90vh;
+  width: 90vw;
+}
+
+/* ---- style modal rules ---- */
+h1 {
+  text-align: center;
+  color: white;
+  margin: 2px auto 2px;
+}
+
+h2 {
+  text-align: left;
+  margin: 15px 0 15px;
+  padding-left: 10px;
+}
+
+li {
+  margin-left: 30px;
+}
+
+.begin {
+  display: flex;
+  justify-items: center;
+  justify-content: space-around;
+  margin: 30px 0 30px;
+}
+
+#begin {
+  height: 50px;
+  width: 160px;
+  border-radius: 3px;
+  border: 1px solid white;
+  font-size: 1.2rem;
+}
+
+.game,
+.rules {
+  padding: 10px;
+  text-align: justify;
+}
+
+.container-text {
+  margin: 0 auto 0;
+  border: 2px solid white;
+  border-radius: 5px;
+  height: auto;
+  width: 85%;
+}
+
+/*----- end style modal rules --- */
+
+.modal-game {
+  font-size: 20px;
+}
+
+.modal-stop-game,
+.modal-win-lost-game,
+.modal-game,
+.modal-parameter,
+.modal-rules {
+  opacity: 0;
+  display: none;
+}
+
+.active {
+  display: visible;
+  opacity: 1;
+}
+
+.modal-one-gamer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
