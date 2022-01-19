@@ -1,7 +1,7 @@
 ////////////// canvas one gamer ////////////////////
 
-const canvas = document.getElementById("draw1");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById('draw1');
+const ctx = canvas.getContext('2d');
 canvas.width = 350;
 canvas.height = 450;
 
@@ -16,7 +16,7 @@ const potenceLevelDifficult = () => {
   ctx.lineTo(257, 50);
   ctx.moveTo(102, 100);
   ctx.lineTo(157, 50);
-  ctx.strokeStyle = "rgb(124, 80, 8)";
+  ctx.strokeStyle = 'rgb(124, 80, 8)';
   ctx.lineWidth = 10;
   ctx.stroke();
 };
@@ -26,7 +26,7 @@ const ropeHeadLevelDifficult = () => {
   ctx.beginPath();
   ctx.moveTo(250, 54);
   ctx.lineTo(250, 110);
-  ctx.strokeStyle = "rgb(243, 241, 233)";
+  ctx.strokeStyle = 'rgb(243, 241, 233)';
   ctx.lineWidth = 7;
   ctx.stroke();
   hair();
@@ -42,7 +42,7 @@ const armLevelDifficult = () => {
   ctx.lineTo(205, 195);
   ctx.moveTo(250, 165);
   ctx.lineTo(295, 195);
-  ctx.strokeStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.stroke();
@@ -55,7 +55,7 @@ const footLevelDifficult = () => {
   ctx.lineTo(295, 283);
   ctx.moveTo(250, 240);
   ctx.lineTo(203, 283);
-  ctx.strokeStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.stroke();
@@ -66,7 +66,7 @@ const potencePartLevelEasy1 = () => {
   ctx.beginPath();
   ctx.moveTo(30, 400);
   ctx.lineTo(200, 400);
-  ctx.strokeStyle = "rgb(124, 80, 8)";
+  ctx.strokeStyle = 'rgb(124, 80, 8)';
   ctx.lineWidth = 10;
   ctx.stroke();
 };
@@ -75,7 +75,7 @@ const potencePartLevelEasy2 = () => {
   ctx.beginPath();
   ctx.moveTo(102, 400);
   ctx.lineTo(102, 50);
-  ctx.strokeStyle = "rgb(124, 80, 8)";
+  ctx.strokeStyle = 'rgb(124, 80, 8)';
   ctx.lineWidth = 10;
   ctx.stroke();
 };
@@ -84,7 +84,7 @@ const potencePartLevelEasy3 = () => {
   ctx.beginPath();
   ctx.moveTo(97, 50);
   ctx.lineTo(257, 50);
-  ctx.strokeStyle = "rgb(124, 80, 8)";
+  ctx.strokeStyle = 'rgb(124, 80, 8)';
   ctx.lineWidth = 10;
   ctx.stroke();
 };
@@ -93,7 +93,7 @@ const potencePartLevelEasy4 = () => {
   ctx.beginPath();
   ctx.moveTo(102, 100);
   ctx.lineTo(157, 50);
-  ctx.strokeStyle = "rgb(124, 80, 8)";
+  ctx.strokeStyle = 'rgb(124, 80, 8)';
   ctx.lineWidth = 10;
   ctx.stroke();
 };
@@ -105,7 +105,7 @@ const potencePartLevelMedium1 = () => {
   ctx.lineTo(200, 400);
   ctx.moveTo(102, 400);
   ctx.lineTo(102, 50);
-  ctx.strokeStyle = "rgb(124, 80, 8)";
+  ctx.strokeStyle = 'rgb(124, 80, 8)';
   ctx.lineWidth = 10;
   ctx.stroke();
 };
@@ -117,7 +117,7 @@ const potencePartLevelMedium2 = () => {
   ctx.lineTo(257, 50);
   ctx.moveTo(102, 100);
   ctx.lineTo(157, 50);
-  ctx.strokeStyle = "rgb(124, 80, 8)";
+  ctx.strokeStyle = 'rgb(124, 80, 8)';
   ctx.lineWidth = 10;
   ctx.stroke();
 };
@@ -127,7 +127,7 @@ const rope = () => {
   ctx.beginPath();
   ctx.moveTo(250, 54);
   ctx.lineTo(250, 110);
-  ctx.strokeStyle = "rgb(243, 241, 233)";
+  ctx.strokeStyle = 'rgb(243, 241, 233)';
   ctx.lineWidth = 7;
   ctx.stroke();
 };
@@ -136,8 +136,8 @@ const rope = () => {
 const head = () => {
   ctx.beginPath();
   ctx.arc(250, 125, 25, 0, 2 * Math.PI);
-  ctx.strokeStyle = "#e5bca1";
-  ctx.fillStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
+  ctx.fillStyle = '#e5bca1';
   ctx.fill();
   ctx.stroke();
 };
@@ -145,8 +145,8 @@ const head = () => {
 const hair = () => {
   ctx.beginPath();
   ctx.arc(250, 118, 26, 0, 2 * Math.PI);
-  ctx.strokeStyle = "black";
-  ctx.fillStyle = "black";
+  ctx.strokeStyle = 'black';
+  ctx.fillStyle = 'black';
   ctx.fill();
   ctx.stroke();
 };
@@ -157,7 +157,7 @@ const eyes = () => {
   ctx.lineTo(245, 118);
   ctx.moveTo(257, 118);
   ctx.lineTo(267, 118);
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = 'black';
   ctx.lineWidth = 1;
   ctx.fill();
   ctx.stroke();
@@ -170,7 +170,7 @@ const mouth = () => {
   ctx.lineTo(260, 136);
   ctx.moveTo(250, 130);
   ctx.lineTo(240, 136);
-  ctx.strokeStyle = "black";
+  ctx.strokeStyle = 'black';
   ctx.lineWidth = 1;
   ctx.fill();
   ctx.stroke();
@@ -181,7 +181,7 @@ const body = () => {
   ctx.beginPath();
   ctx.moveTo(250, 153);
   ctx.lineTo(250, 240);
-  ctx.strokeStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.stroke();
@@ -192,7 +192,7 @@ const leftArm = () => {
   ctx.beginPath();
   ctx.moveTo(250, 165);
   ctx.lineTo(205, 195);
-  ctx.strokeStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.stroke();
@@ -203,7 +203,7 @@ const rightArm = () => {
   ctx.beginPath();
   ctx.moveTo(250, 165);
   ctx.lineTo(295, 195);
-  ctx.strokeStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.stroke();
@@ -214,7 +214,7 @@ const rightFoot = () => {
   ctx.beginPath();
   ctx.moveTo(250, 240);
   ctx.lineTo(295, 283);
-  ctx.strokeStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.stroke();
@@ -225,7 +225,7 @@ const leftFoot = () => {
   ctx.beginPath();
   ctx.moveTo(250, 240);
   ctx.lineTo(203, 283);
-  ctx.strokeStyle = "#e5bca1";
+  ctx.strokeStyle = '#e5bca1';
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.stroke();
@@ -324,39 +324,36 @@ reset.addEventListener('click', () => {
 
 ///////////////////// MODALES ///////////////////////////////
 
-const modalRule = document.querySelector(".modal-rules");
-const modalParameter = document.querySelector(".modal-parameter");
-const buttonParameter = document.getElementById("begin");
-const contentGame = document.querySelector(".modal-game");
-const stopGame = document.querySelector(".modal-stop-game");
+const modalRule = document.querySelector('.modal-rules');
+const modalParameter = document.querySelector('.modal-parameter');
+const buttonParameter = document.getElementById('begin');
+const contentGame = document.querySelector('.modal-game');
+const stopGame = document.querySelector('.modal-stop-game');
 /// AJOUTER MODALES EN FONCTION DU NOMBRE DE JOUEURS/// function two gamers disabled
 
 window.onload = () => {
-  modalRule.classList.add("active");
-  modalRule.classList.remove("modal-rules");
+  modalRule.classList.add('active');
+  modalRule.classList.remove('modal-rules');
 };
 
-buttonParameter.addEventListener("click", () => {
-  modalRule.classList.remove("active");
-  modalRule.classList.add("modal-rules");
-  modalParameter.classList.add("active");
-  modalParameter.classList.remove("modal-parameter");
+buttonParameter.addEventListener('click', () => {
+  modalRule.classList.remove('active');
+  modalRule.classList.add('modal-rules');
+  modalParameter.classList.add('active');
+  modalParameter.classList.remove('modal-parameter');
 });
 
 ////////////// Choice parameters game ///////////////////////////
-
-const buttonGamer = document.querySelectorAll('input[name="gamer"]');
-const pseudoOne = document.getElementById("p1");
-const pseudoTwo = document.getElementById("p2");
-const numberWord = document.getElementById("word");
+const pseudoOne = document.getElementById('p1');
+const numberWord = document.getElementById('word');
 const levelGame = document.querySelectorAll('input[name="level"]');
-const boxLetters = document.querySelector(".letters");
-const numberHitWord = document.querySelector(".container-hideword");
-const resetParameters = document.querySelector(".reset-parameters");
-const parameters = document.querySelector(".parameters");
-let boxSeekLetters = document.querySelector(".seek");
-const valid = document.querySelector(".btn");
-const modalLostWinGame = document.querySelector(".modal-win-lost-game");
+const boxLetters = document.querySelector('.letters');
+const numberHitWord = document.querySelector('.container-hideword');
+const resetParameters = document.querySelector('.reset-parameters');
+const parameters = document.querySelector('.parameters');
+let boxSeekLetters = document.querySelector('.seek');
+const valid = document.querySelector('.btn');
+const modalLostWinGame = document.querySelector('.modal-win-lost-game');
 
 //variables
 
@@ -377,8 +374,8 @@ let countParameters = 0;
 let countBoxLetters = 0;
 let wordLost = 0;
 let wordWin = 0;
-let styleWord1 = "";
-let styleword2 = "";
+let styleWord1 = '';
+let styleword2 = '';
 
 // choice player number
 /* buttonGamer.forEach((gamer) => {
@@ -394,7 +391,7 @@ let styleword2 = "";
 }); */
 
 //choice pseudo player
-pseudoOne.addEventListener("input", (e) => {
+pseudoOne.addEventListener('input', (e) => {
   let one = e.target.value;
   temp.push(one);
   nameOne = temp.pop();
@@ -409,11 +406,11 @@ pseudoOne.addEventListener("input", (e) => {
 }); */
 
 // choice number word
-numberWord.addEventListener("input", (e) => {
+numberWord.addEventListener('input', (e) => {
   number = parseInt(e.target.value);
   if (isNaN(number)) {
-    alert("Veuillez saisir uniquement des chiffres !");
-    numberWord.value = "";
+    alert('Veuillez saisir uniquement des chiffres !');
+    numberWord.value = '';
     return;
   }
   temp.push(number);
@@ -421,9 +418,9 @@ numberWord.addEventListener("input", (e) => {
 });
 
 levelGame.forEach((level) => {
-  level.addEventListener("click", (e) => {
+  level.addEventListener('click', (e) => {
     difficult = e.target.id;
-    level.setAttribute("checked", "");
+    level.setAttribute('checked', '');
   });
 });
 
@@ -431,19 +428,19 @@ levelGame.forEach((level) => {
 const verify = () => {
   /* numberPlayer === null ||  dans le if*/
   if (difficult === null && wordEndGame === null && nameOne === null) {
-    alert("Veuillez renseigner tous les paramètres");
+    alert('Veuillez renseigner tous les paramètres');
     error = true;
     return;
   }
 
   if (nameOne === null /* && nameTwo === null */) {
-    alert("Vous avez oublié de saisir les pseudos");
+    alert('Vous avez oublié de saisir les pseudos');
     error = true;
     return;
   }
 
   if (numberPlayer == 1 && nameOne === null) {
-    alert("Veuillez saisir le pseudo 1");
+    alert('Veuillez saisir le pseudo 1');
     error = true;
     return;
   } /* else if (numberPlayer == 2 && nameTwo === null) {
@@ -453,19 +450,19 @@ const verify = () => {
   } */
 
   if (number === 0) {
-    alert("Veuillez Saisir un chiffre supérieur à 0 !");
-    numberWord.value = "";
+    alert('Veuillez Saisir un chiffre supérieur à 0 !');
+    numberWord.value = '';
     error = true;
     return;
   } else if (number === null) {
-    alert("Veuillez Saisir un chiffre pour le paramètre nombre de mot !");
-    numberWord.value = "";
+    alert('Veuillez Saisir un chiffre pour le paramètre nombre de mot !');
+    numberWord.value = '';
     error = true;
     return;
   }
 
   if (difficult === null) {
-    alert("Veuillez choisir un niveau de difficulté !");
+    alert('Veuillez choisir un niveau de difficulté !');
     error = true;
     return;
   }
@@ -475,38 +472,38 @@ const verify = () => {
 const resetInputs = () => {
   const radios = document.querySelectorAll('input[type="radio"]');
   for (let i = 0; i < radios.length; i++) {
-    if (radios[i].hasAttribute("checked")) {
+    if (radios[i].hasAttribute('checked')) {
       radios[i].checked = false;
     }
   }
-  pseudoOne.value = "";
-  pseudoTwo.value = "";
-  numberWord.value = "";
+  pseudoOne.value = '';
+  pseudoTwo.value = '';
+  numberWord.value = '';
   // temporary two gammer disabled
   numberPlayer = 1;
-  const idGamer = document.getElementById("1");
+  const idGamer = document.getElementById('1');
   idGamer.checked = true;
   return;
 };
 
 /// valid parameters
-valid.addEventListener("click", (e) => {
+valid.addEventListener('click', (e) => {
   verify();
   if (error) {
     e.preventDefault;
     error = false;
   } else {
-    modalParameter.classList.remove("active");
-    modalParameter.classList.add("modal-parameter");
-    contentGame.classList.add("active");
-    contentGame.classList.remove("modal-game");
+    modalParameter.classList.remove('active');
+    modalParameter.classList.add('modal-parameter');
+    contentGame.classList.add('active');
+    contentGame.classList.remove('modal-game');
 
     if (wordEndGame === 1) {
-      styleWord1 = "mot";
-      styleword2 = "retrouvé";
+      styleWord1 = 'mot';
+      styleword2 = 'retrouvé';
     } else {
-      styleWord1 = "mots";
-      styleword2 = "retrouvés";
+      styleWord1 = 'mots';
+      styleword2 = 'retrouvés';
     }
 
     countBoxLetters++;
@@ -514,14 +511,14 @@ valid.addEventListener("click", (e) => {
 
     if (countBoxLetters === 1) {
       boxLetters.insertAdjacentHTML(
-        "afterbegin",
+        'afterbegin',
         `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
       );
     } else {
       resetChoiceWordWinGame();
 
       boxLetters.insertAdjacentHTML(
-        "afterbegin",
+        'afterbegin',
         `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
       );
     }
@@ -530,19 +527,19 @@ valid.addEventListener("click", (e) => {
 
     if (countParameters === 1) {
       parameters.insertAdjacentHTML(
-        "afterbegin",
+        'afterbegin',
         `<p class="pseudo">Pseudo : <button class="btn-style-choice-parameters">${nameOne
           .toString()
           .toUpperCase()}</button></p>`
       );
       parameters.insertAdjacentHTML(
-        "beforeend",
+        'beforeend',
         `<p class="level">Niveau de difficulté :  <button class="btn-style-choice-parameters">${difficult
           .toString()
           .toUpperCase()}</button></p>`
       );
       parameters.insertAdjacentHTML(
-        "beforeend",
+        'beforeend',
         `<p class="word-game">Choix du nombre mots à trouver : <button class="btn-style-choice-word-game">${wordEndGame}</button></p>`
       );
     } else {
@@ -550,30 +547,30 @@ valid.addEventListener("click", (e) => {
       resetPseudoLevelWordEndGame();
 
       parameters.insertAdjacentHTML(
-        "afterbegin",
+        'afterbegin',
         `<p class="pseudo">Pseudo : <button class="btn-style-choice-parameters">${nameOne
           .toString()
           .toUpperCase()}</button></p>`
       );
       parameters.insertAdjacentHTML(
-        "beforeend",
+        'beforeend',
         `<p class="level">Niveau de difficulté :  <button class="btn-style-choice-parameters">${difficult
           .toString()
           .toUpperCase()}</button></p>`
       );
       parameters.insertAdjacentHTML(
-        "beforeend",
+        'beforeend',
         `<p class="word-game">Choix du nombre mots à trouver : <button class="btn-style-choice-word-game">${tempWordEndGame}</button></p>`
       );
     }
 
     // number hit word game
-    const numberHitWord = document.querySelector(".container-hideword");
+    const numberHitWord = document.querySelector('.container-hideword');
 
-    if (difficult == "Facile") {
+    if (difficult == 'Facile') {
       countNumberHitWord = 11;
       tempCountHit = 11;
-    } else if (difficult == "Moyen") {
+    } else if (difficult == 'Moyen') {
       countNumberHitWord = 9;
       tempCountHit = 9;
     } else {
@@ -584,14 +581,14 @@ valid.addEventListener("click", (e) => {
     tempdifficult++;
     if (tempdifficult === 1) {
       numberHitWord.insertAdjacentHTML(
-        "afterbegin",
+        'afterbegin',
         `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
       );
     } else {
-      const hitNumber = document.querySelector(".number-hit");
+      const hitNumber = document.querySelector('.number-hit');
       hitNumber.remove();
       numberHitWord.insertAdjacentHTML(
-        "afterbegin",
+        'afterbegin',
         `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
       );
     }
@@ -606,13 +603,13 @@ valid.addEventListener("click", (e) => {
 //////////////////////////// GAME //////////////////////////////
 
 //variables
-let wordHide = document.createElement("p");
-const buttonAlphabet = document.querySelectorAll(".alphabet button");
-const blockWordWininLost = document.querySelector(".blok-word-win-lost");
+let wordHide = document.createElement('p');
+const buttonAlphabet = document.querySelectorAll('.alphabet button');
+const blockWordWininLost = document.querySelector('.blok-word-win-lost');
 let count = 0;
 let letterFound = false;
 let tempWord = [];
-let buttonLetter = "";
+let buttonLetter = '';
 let countWinLostTitle = 0;
 let countLostGame = 0;
 let countWinGame = 0;
@@ -622,137 +619,137 @@ let words = [];
 const initializeWords = () => {
   //base of words
   words = [
-    "physique",
-    "voiture",
-    "argentine",
-    "forestier",
-    "voyage",
-    "australie",
-    "etats-unies",
-    "echelle",
-    "autoroute",
-    "constitution",
-    "histoire",
-    "geographie",
-    "Baccalaureat",
-    "Abracadabra",
-    "Francophile",
-    "Pandemonium",
-    "Chlorophylle",
-    "Metallurgie",
-    "Metamorphose",
-    "Montgolfiere",
-    "Kaleidoscope",
-    "Conquistador",
-    "Conspirateur",
-    "Rhododendron",
-    "Qualification",
-    "Protozoaire",
-    "Quadrilatere",
-    "Zygomatique",
-    "Sorcellerie",
-    "Belligerant",
-    "Acrostiche",
-    "Apocalypse",
-    "Attraction",
-    "Aventurier",
-    "Bouillotte",
-    "Citrouille",
-    "Controverse",
-    "Coquelicot",
-    "Dissimuler",
-    "Flibustier",
-    "Forestiere",
-    "Grenouille",
-    "Impossible",
-    "Labyrinthe",
-    "Maharadjah",
-    "Prudemment",
-    "Quadriceps",
-    "Soliloquer",
-    "Subjective",
-    "Accordeon",
-    "Ascenseur",
-    "Ascension",
-    "Aseptiser",
-    "Autoroute",
-    "Avalanche",
-    "Balalaika",
-    "Bilboquet",
-    "Bourricot",
-    "Brillance",
-    "Cabriolet",
-    "Contrario",
-    "Cornemuse",
-    "Dangereux",
-    "epluchage",
-    "Feodalite",
-    "Forteresse",
-    "Gondolier",
-    "Graphique",
-    "Horoscope",
-    "Intrepide",
-    "Klaxonner",
-    "Mascarade",
-    "Metaphore",
-    "Narrateur",
-    "Peripetie",
-    "Populaire",
-    "Printemps",
-    "Quemander",
-    "Tambourin",
-    "Vestiaire",
-    "Xylophone",
-    "Acajou",
-    "Agneau",
-    "Alarme",
-    "Ananas",
-    "Angora",
-    "Animal",
-    "Arcade",
-    "Aviron",
-    "Azimut",
-    "Babine",
-    "Balade",
-    "Bonzai",
-    "Basson",
-    "Billet",
-    "Bouche",
-    "Boucle",
-    "Bronze",
-    "Cabane",
-    "Caiman",
-    "Cloche",
-    "Cheque",
-    "Cirage",
-    "Coccyx",
-    "Crayon",
-    "Garage",
-    "Gospel",
-    "Goulot",
-    "Gramme",
-    "Grelot",
-    "Guenon",
-    "Hochet",
-    "Hormis",
-    "Humour",
-    "Hurler",
-    "Jargon",
-    "Limite",
-    "Lionne",
-    "Menthe",
-    "Oiseau",
-    "Podium",
-    "Poulpe",
-    "Poumon",
-    "Puzzle",
-    "Quartz",
-    "Rapide",
-    "Seisme",
-    "Tetine",
-    "Tomate",
-    "Walabi",
-    "Whisky",
+    'physique',
+    'voiture',
+    'argentine',
+    'forestier',
+    'voyage',
+    'australie',
+    'etats-unies',
+    'echelle',
+    'autoroute',
+    'constitution',
+    'histoire',
+    'geographie',
+    'Baccalaureat',
+    'Abracadabra',
+    'Francophile',
+    'Pandemonium',
+    'Chlorophylle',
+    'Metallurgie',
+    'Metamorphose',
+    'Montgolfiere',
+    'Kaleidoscope',
+    'Conquistador',
+    'Conspirateur',
+    'Rhododendron',
+    'Qualification',
+    'Protozoaire',
+    'Quadrilatere',
+    'Zygomatique',
+    'Sorcellerie',
+    'Belligerant',
+    'Acrostiche',
+    'Apocalypse',
+    'Attraction',
+    'Aventurier',
+    'Bouillotte',
+    'Citrouille',
+    'Controverse',
+    'Coquelicot',
+    'Dissimuler',
+    'Flibustier',
+    'Forestiere',
+    'Grenouille',
+    'Impossible',
+    'Labyrinthe',
+    'Maharadjah',
+    'Prudemment',
+    'Quadriceps',
+    'Soliloquer',
+    'Subjective',
+    'Accordeon',
+    'Ascenseur',
+    'Ascension',
+    'Aseptiser',
+    'Autoroute',
+    'Avalanche',
+    'Balalaika',
+    'Bilboquet',
+    'Bourricot',
+    'Brillance',
+    'Cabriolet',
+    'Contrario',
+    'Cornemuse',
+    'Dangereux',
+    'epluchage',
+    'Feodalite',
+    'Forteresse',
+    'Gondolier',
+    'Graphique',
+    'Horoscope',
+    'Intrepide',
+    'Klaxonner',
+    'Mascarade',
+    'Metaphore',
+    'Narrateur',
+    'Peripetie',
+    'Populaire',
+    'Printemps',
+    'Quemander',
+    'Tambourin',
+    'Vestiaire',
+    'Xylophone',
+    'Acajou',
+    'Agneau',
+    'Alarme',
+    'Ananas',
+    'Angora',
+    'Animal',
+    'Arcade',
+    'Aviron',
+    'Azimut',
+    'Babine',
+    'Balade',
+    'Bonzai',
+    'Basson',
+    'Billet',
+    'Bouche',
+    'Boucle',
+    'Bronze',
+    'Cabane',
+    'Caiman',
+    'Cloche',
+    'Cheque',
+    'Cirage',
+    'Coccyx',
+    'Crayon',
+    'Garage',
+    'Gospel',
+    'Goulot',
+    'Gramme',
+    'Grelot',
+    'Guenon',
+    'Hochet',
+    'Hormis',
+    'Humour',
+    'Hurler',
+    'Jargon',
+    'Limite',
+    'Lionne',
+    'Menthe',
+    'Oiseau',
+    'Podium',
+    'Poulpe',
+    'Poumon',
+    'Puzzle',
+    'Quartz',
+    'Rapide',
+    'Seisme',
+    'Tetine',
+    'Tomate',
+    'Walabi',
+    'Whisky',
   ];
 };
 
@@ -762,9 +759,9 @@ let selectWord;
 let displayLetter = [];
 
 const gameWordPendu = () => {
-  const hideWord = document.querySelector(".hideword");
-  let wordDisplayHide = "";
-  wordHide.classList.add("content-hide-word");
+  const hideWord = document.querySelector('.hideword');
+  let wordDisplayHide = '';
+  wordHide.classList.add('content-hide-word');
 
   // Choice word
   const indexWord = Math.floor(Math.random() * words.length);
@@ -791,7 +788,7 @@ const gameWordPendu = () => {
   //   selectWord = wordRandomArray.toString().toUpperCase();
   // }
   //////////////////////////////////////
-  wordDisplayHide = selectWord.replace(/[A-Z]/g, "_"); //replace letter for "_" via regex
+  wordDisplayHide = selectWord.replace(/[A-Z]/g, '_'); //replace letter for "_" via regex
   //display hide word
   wordHide.textContent = wordDisplayHide;
   hideWord.appendChild(wordHide);
@@ -804,22 +801,22 @@ const gameWordPendu = () => {
 
   if (countWinLostTitle === 1) {
     blockWordWininLost.insertAdjacentHTML(
-      "afterbegin",
+      'afterbegin',
       `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
     );
     blockWordWininLost.insertAdjacentHTML(
-      "beforeend",
+      'beforeend',
       `<p class="word-lost-title">Nombre de mots perdu   : <button class="score-word-lost">${countLostGame}</button></p>`
     );
   } else {
     resetWinLostTitle();
 
     blockWordWininLost.insertAdjacentHTML(
-      "afterbegin",
+      'afterbegin',
       `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
     );
     blockWordWininLost.insertAdjacentHTML(
-      "beforeend",
+      'beforeend',
       `<p class="word-lost-title">Nombre de mots perdu  : <button class="score-word-lost">${countLostGame}</button></p>`
     );
   }
@@ -837,7 +834,7 @@ const gameWordPendu = () => {
 
   //event alphabet button
   buttonAlphabet.forEach((button) => {
-    button.addEventListener("click", handleMouseClick(button));
+    button.addEventListener('click', handleMouseClick(button));
   });
 };
 
@@ -845,12 +842,12 @@ const gameWordPendu = () => {
 const seekLetter = (userLetter) => {
   console.log(selectWord);
   return [...selectWord].map((letter, i) => {
-    if (displayLetter[i] !== "_") return displayLetter[i];
+    if (displayLetter[i] !== '_') return displayLetter[i];
     if (letter === userLetter) {
       letterFound = true;
       return userLetter;
     } else {
-      return "_";
+      return '_';
     }
   });
 };
@@ -859,18 +856,18 @@ const handleMouseClick = (button) => {
   console.log(button.id);
   // console.log(e.target.id.toUpperCase());
   buttonLetter = button.id.toUpperCase(); //e.target.id.toUpperCase();
-  button.classList.add("boxDisabled");
-  resetParameters.classList.add("boxDisabled");
+  button.classList.add('boxDisabled');
+  resetParameters.classList.add('boxDisabled');
 
   /// box seek letters/////////////
   boxSeekLetters.insertAdjacentHTML(
-    "beforeend",
+    'beforeend',
     `<button id="${buttonLetter}" class="btn-letter-seek">${buttonLetter}</button>`
   );
 
   /////////////////////////////
 
-  console.log("COUCOU");
+  console.log('COUCOU');
 
   displayLetter = seekLetter(buttonLetter);
 
@@ -879,11 +876,11 @@ const handleMouseClick = (button) => {
   if (!letterFound) {
     // if choice letter is not found - draw pendu
     // console.log("compteur au debut " + count);
-    if (difficult === "Facile") {
+    if (difficult === 'Facile') {
       ++count;
       drawPenduLevelEasy.get(count)();
       // console.log(count);
-    } else if (difficult === "Moyen") {
+    } else if (difficult === 'Moyen') {
       ++count;
       drawPenduLevelMedium.get(count)();
       // console.log(count);
@@ -897,11 +894,11 @@ const handleMouseClick = (button) => {
     hitNumber();
     // letterFound = false;
   }
-  letterFound === true ? (letterFound = false) : "";
-  wordHide.textContent = displayLetter.join(""); // display DOM
+  letterFound === true ? (letterFound = false) : '';
+  wordHide.textContent = displayLetter.join(''); // display DOM
 
   /// verify hit number and count drawPenduLevel ////
-  if (!displayLetter.includes("_")) {
+  if (!displayLetter.includes('_')) {
     if (tempWordEndGame === 1) {
       winGame();
     } else {
@@ -916,7 +913,7 @@ const handleMouseClick = (button) => {
     } else {
       if (tempWordEndGame > 1) {
         numberWordLost();
-        console.log("fonction numberWordLost fini de travailler");
+        console.log('fonction numberWordLost fini de travailler');
       }
     }
   }
@@ -926,9 +923,9 @@ const handleMouseClick = (button) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //function reset pseudo, level, wordEndGame of parameters
 const resetPseudoLevelWordEndGame = () => {
-  const level = document.querySelector(".level");
-  const pseudo = document.querySelector(".pseudo");
-  const wordGame = document.querySelector(".word-game");
+  const level = document.querySelector('.level');
+  const pseudo = document.querySelector('.pseudo');
+  const wordGame = document.querySelector('.word-game');
   level.remove();
   pseudo.remove();
   wordGame.remove();
@@ -936,19 +933,19 @@ const resetPseudoLevelWordEndGame = () => {
 };
 
 const resetWordHide = () => {
-  const displayWordHide = document.querySelector(".content-hide-word");
+  const displayWordHide = document.querySelector('.content-hide-word');
   displayWordHide.remove();
 };
 
 const resetChoiceWordWinGame = () => {
-  const choiceLetters = document.querySelector(".box-choice-word");
+  const choiceLetters = document.querySelector('.box-choice-word');
   choiceLetters.remove();
   return;
 };
 
 //function reset buttons selected
 const resetButtonSelected = () => {
-  const buttonSeek = document.querySelectorAll(".btn-letter-seek");
+  const buttonSeek = document.querySelectorAll('.btn-letter-seek');
   buttonSeek.forEach((letter) => {
     letter.remove();
   });
@@ -963,26 +960,26 @@ const resetCanvas = () => {
 //function reset disabled letters seek
 const resetDisabledLettersSeek = () => {
   buttonAlphabet.forEach((btnLetter) => {
-    if (btnLetter.hasAttribute("class", "boxDisabled")) {
-      btnLetter.removeAttribute("class", "boxDisabled");
+    if (btnLetter.hasAttribute('class', 'boxDisabled')) {
+      btnLetter.removeAttribute('class', 'boxDisabled');
     }
   });
   return;
 };
 
 // reset parameters gamer
-resetParameters.addEventListener("click", () => {
-  modalParameter.classList.add("active");
-  modalParameter.classList.remove("modal-parameter");
-  contentGame.classList.remove("active");
-  contentGame.classList.add("modal-game");
+resetParameters.addEventListener('click', () => {
+  modalParameter.classList.add('active');
+  modalParameter.classList.remove('modal-parameter');
+  contentGame.classList.remove('active');
+  contentGame.classList.add('modal-game');
   return;
 });
 
 // reset win and lost title
 const resetWinLostTitle = () => {
-  const wordWinTitle = document.querySelector(".word-win-title");
-  const wordLostTitle = document.querySelector(".word-lost-title");
+  const wordWinTitle = document.querySelector('.word-win-title');
+  const wordLostTitle = document.querySelector('.word-lost-title');
   wordLostTitle.remove();
   wordWinTitle.remove();
   return;
@@ -990,83 +987,83 @@ const resetWinLostTitle = () => {
 
 //function ???
 const resetScoreWordAndHit = () => {
-  const lostWinDom = document.querySelector(".lost-win");
+  const lostWinDom = document.querySelector('.lost-win');
   lostWinDom.remove();
 };
 
 // button choice stop game
-const endGame = document.querySelector(".end");
-endGame.addEventListener("click", () => {
-  contentGame.classList.remove("active");
-  contentGame.classList.add("modal-game");
-  stopGame.classList.add("active");
-  stopGame.classList.remove("modal-stop-game");
-  const warning = document.querySelector(".warning");
-  warning.textContent = "Voulez-vous quitter le jeu du pendu ?";
+const endGame = document.querySelector('.end');
+endGame.addEventListener('click', () => {
+  contentGame.classList.remove('active');
+  contentGame.classList.add('modal-game');
+  stopGame.classList.add('active');
+  stopGame.classList.remove('modal-stop-game');
+  const warning = document.querySelector('.warning');
+  warning.textContent = 'Voulez-vous quitter le jeu du pendu ?';
 });
 
 // button go game
-const btnGame = document.querySelector(".go-game");
-btnGame.addEventListener("click", () => {
-  contentGame.classList.add("active");
-  contentGame.classList.remove("modal-game");
-  stopGame.classList.remove("active");
-  stopGame.classList.add("modal-stop-game");
+const btnGame = document.querySelector('.go-game');
+btnGame.addEventListener('click', () => {
+  contentGame.classList.add('active');
+  contentGame.classList.remove('modal-game');
+  stopGame.classList.remove('active');
+  stopGame.classList.add('modal-stop-game');
 });
 
 // button go game 2
-const btnGame2 = document.querySelector(".go-game-2");
-btnGame2.addEventListener("click", () => {
-  stopGame.classList.remove("active");
-  stopGame.classList.add("modal-stop-game");
-  window.location.replace("index.html");
+const btnGame2 = document.querySelector('.go-game-2');
+btnGame2.addEventListener('click', () => {
+  stopGame.classList.remove('active');
+  stopGame.classList.add('modal-stop-game');
+  window.location.replace('index.html');
 });
 
 // button stop game
-const stopG = document.querySelector(".stop");
-stopG.addEventListener("click", () => {
-  stopGame.classList.remove("active");
-  stopGame.classList.add("modal-stop-game");
-  window.location.replace("https://www.google.fr");
+const stopG = document.querySelector('.stop');
+stopG.addEventListener('click', () => {
+  stopGame.classList.remove('active');
+  stopGame.classList.add('modal-stop-game');
+  window.location.replace('https://www.google.fr');
 });
 
 // button stop game 2
-const stopG2 = document.querySelector(".stop-2");
-stopG2.addEventListener("click", () => {
-  stopGame.classList.remove("active");
-  stopGame.classList.add("modal-win-lost-game");
-  window.location.replace("https://www.google.fr");
+const stopG2 = document.querySelector('.stop-2');
+stopG2.addEventListener('click', () => {
+  stopGame.classList.remove('active');
+  stopGame.classList.add('modal-win-lost-game');
+  window.location.replace('https://www.google.fr');
 });
 
 //function remove dom hit
 const hitNumber = () => {
-  const numberHit = document.querySelector(".number-hit");
+  const numberHit = document.querySelector('.number-hit');
   numberHit.remove();
   numberHitWord.insertAdjacentHTML(
-    "afterbegin",
+    'afterbegin',
     `<p class="number-hit">Vous avez <button class="hit">${countNumberHitWord}</button> tentatives pour retrouver le mot caché</p>`
   );
 };
 
 //function smiley score lost
 const smileysLost = () => {
-  const smileyWordHit = document.getElementById("img");
+  const smileyWordHit = document.getElementById('img');
 
   if (countLostGame === 0) {
     let scorePercentLost =
       ((wordEndGame - tempWordEndGame) / wordEndGame) * 100;
 
     if (scorePercentLost < 26) {
-      smileyWordHit.setAttribute("src", "/svg/en-colere.svg");
+      smileyWordHit.setAttribute('src', '/svg/en-colere.svg');
     }
     if (scorePercentLost > 25 && scorePercentLost < 51) {
-      smileyWordHit.setAttribute("src", "svg/malheureux.svg");
+      smileyWordHit.setAttribute('src', 'svg/malheureux.svg');
     }
     if (scorePercentLost > 50 && scorePercentLost < 76) {
-      smileyWordHit.setAttribute("src", "/svg/sourire.svg");
+      smileyWordHit.setAttribute('src', '/svg/sourire.svg');
     }
     if (scorePercentLost > 75) {
-      smileyWordHit.setAttribute("src", "/svg/heureux.svg");
+      smileyWordHit.setAttribute('src', '/svg/heureux.svg');
     }
     return;
   }
@@ -1074,22 +1071,22 @@ const smileysLost = () => {
 
 // function smiley score win
 const smileysWin = () => {
-  const smileyWordHit = document.getElementById("img");
+  const smileyWordHit = document.getElementById('img');
 
   if (countWinGame === 0) {
     let scorePercentWin = (tempWordEndGame / wordEndGame) * 100;
 
     if (scorePercentWin < 26) {
-      smileyWordHit.setAttribute("src", "/svg/en-colere.svg");
+      smileyWordHit.setAttribute('src', '/svg/en-colere.svg');
     }
     if (scorePercentWin > 25 && scorePercentWin < 51) {
-      smileyWordHit.setAttribute("src", "svg/malheureux.svg");
+      smileyWordHit.setAttribute('src', 'svg/malheureux.svg');
     }
     if (scorePercentWin > 50 && scorePercentWin < 76) {
-      smileyWordHit.setAttribute("src", "/svg/sourire.svg");
+      smileyWordHit.setAttribute('src', '/svg/sourire.svg');
     }
     if (scorePercentWin > 75) {
-      smileyWordHit.setAttribute("src", "/svg/heureux.svg");
+      smileyWordHit.setAttribute('src', '/svg/heureux.svg');
     }
     return;
   }
@@ -1098,12 +1095,12 @@ const smileysWin = () => {
 //function lost game choice word one
 const lostGame = () => {
   if (countLostGame === 0) {
-    contentGame.classList.remove("active");
-    contentGame.classList.add("modal-game");
-    modalLostWinGame.classList.add("active");
-    modalLostWinGame.classList.remove("modal-win-lost-game");
+    contentGame.classList.remove('active');
+    contentGame.classList.add('modal-game');
+    modalLostWinGame.classList.add('active');
+    modalLostWinGame.classList.remove('modal-win-lost-game');
     modalLostWinGame.insertAdjacentHTML(
-      "afterbegin",
+      'afterbegin',
       `<div class="lost-win">
           <p class="win-lost-text1">MALHEUREUSEMENT ! ${nameOne.toUpperCase()}, vous avez perdu le jeu</p>
           <p class="win-lost-text2"> Vous avez retrouvé <button class="total-word">${
@@ -1121,12 +1118,12 @@ const lostGame = () => {
   } else {
     resetScoreWordAndHit();
 
-    contentGame.classList.remove("active");
-    contentGame.classList.add("modal-game");
-    modalLostWinGame.classList.add("active");
-    modalLostWinGame.classList.remove("modal-win-lost-game");
+    contentGame.classList.remove('active');
+    contentGame.classList.add('modal-game');
+    modalLostWinGame.classList.add('active');
+    modalLostWinGame.classList.remove('modal-win-lost-game');
     modalLostWinGame.insertAdjacentHTML(
-      "afterbegin",
+      'afterbegin',
       `<div class="lost-win">
           <p class="win-lost-text1">MALHEUREUSEMENT ! ${nameOne.toUpperCase()}, vous avez perdu le jeu</p>
           <p class="win-lost-text2"> Vous avez retrouvé <button class="total-word">${
@@ -1147,12 +1144,12 @@ const lostGame = () => {
 // function win game choice word one
 const winGame = () => {
   if (countWinGame === 0) {
-    contentGame.classList.remove("active");
-    contentGame.classList.add("modal-game");
-    modalLostWinGame.classList.add("active");
-    modalLostWinGame.classList.remove("modal-win-lost-game");
+    contentGame.classList.remove('active');
+    contentGame.classList.add('modal-game');
+    modalLostWinGame.classList.add('active');
+    modalLostWinGame.classList.remove('modal-win-lost-game');
     modalLostWinGame.insertAdjacentHTML(
-      "afterbegin",
+      'afterbegin',
       `<div class="lost-win">
           <p class="win-lost-text1">FELICITATION ! ${nameOne.toUpperCase()} vous avez gagné le jeu</p>
           <p class="win-lost-text2"> Vous avez retrouvé <button class="total-word">${tempWordEndGame} </button> mot, soit <button class="word-percent">${
@@ -1170,12 +1167,12 @@ const winGame = () => {
   } else {
     resetScoreWordAndHit();
 
-    contentGame.classList.remove("active");
-    contentGame.classList.add("modal-game");
-    modalLostWinGame.classList.add("active");
-    modalLostWinGame.classList.remove("modal-win-lost-game");
+    contentGame.classList.remove('active');
+    contentGame.classList.add('modal-game');
+    modalLostWinGame.classList.add('active');
+    modalLostWinGame.classList.remove('modal-win-lost-game');
     modalLostWinGame.insertAdjacentHTML(
-      "afterbegin",
+      'afterbegin',
       `<div class="lost-win">
           <p class="win-lost-text1">FELICITATION ! ${nameOne.toUpperCase()} vous avez gagné le jeu</p>
           <p class="win-lost-text2"> Vous avez retrouvé <button class="total-word">${tempWordEndGame} </button> mot, soit <button class="word-percent">${
@@ -1209,17 +1206,17 @@ const reGameWordLost = () => {
   tempWord = [];
   //////////////////////////////////
   boxLetters.insertAdjacentHTML(
-    "afterbegin",
+    'afterbegin',
     `<p class="box-choice-word">Il vous reste <button class="rest-choice-word-win-game">${tempWordEndGame}</button> ${styleWord1} à ${styleword2}</p>`
   );
   ////////////////////////////////
   resetWinLostTitle();
   blockWordWininLost.insertAdjacentHTML(
-    "afterbegin",
+    'afterbegin',
     `<p class="word-win-title">Nombre de mots retrouvés : <button class="score-word-win">${countWinGame}</btton</p>`
   );
   blockWordWininLost.insertAdjacentHTML(
-    "beforeend",
+    'beforeend',
     `<p class="word-lost-title">Nombre de mots perdu  : <button class="score-word-lost">${countLostGame}</button></p>`
   );
   //////////////////////////////
@@ -1232,13 +1229,13 @@ const numberWordLost = () => {
     tempWordEndGame--;
     countLostGame++;
     // countWinGame;
-    console.log("nouveau word " + tempWordEndGame);
+    console.log('nouveau word ' + tempWordEndGame);
     let tempHit = tempCountHit - countNumberHitWord;
     scoreHitTab.push(tempHit);
-    if (difficult == "Facile") {
+    if (difficult == 'Facile') {
       countNumberHitWord = 11;
       tempCountHit = 11;
-    } else if (difficult == "Moyen") {
+    } else if (difficult == 'Moyen') {
       countNumberHitWord = 9;
       tempCountHit = 9;
     } else {
@@ -1249,7 +1246,7 @@ const numberWordLost = () => {
 
     //event alphabet button
     buttonAlphabet.forEach((letters) => {
-      letters.removeEventListener("click", handleMouseClick);
+      letters.removeEventListener('click', handleMouseClick);
     });
 
     gameWordPendu();
@@ -1264,7 +1261,7 @@ const numberWordWin = () => {
     tempWordEndGame--;
     countLostGame;
     countWinGame++;
-    console.log("nouveau compteur word " + tempWordEndGame);
+    console.log('nouveau compteur word ' + tempWordEndGame);
     let tempHit = tempCountHit - countNumberHitWord;
     scoreHitTab.push(tempHit);
     reGameWordLost();

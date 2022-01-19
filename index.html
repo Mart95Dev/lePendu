@@ -93,14 +93,19 @@ des lettres. Si la lettre est absente du mot alors on commence à dessiner le pe
 </div> 
 <div class="modal-game container-game"> 
     <p class="title">LE JEU DU PENDU</p>        
-         <div class="parameters"></div> 
+         <div class="parameters">
+            <p class="pseudo">Pseudo : <button id="pseudo" class="btn-style-choice-parameters"></button></p>
+            <p class="level">Niveau de difficulté : <button id="level" class="btn-style-choice-parameters"></button></p>
+            <p class="word-game">Nombre de mot à trouver : <button id="word" class="btn-style-choice-word-game"></button></p>
+         </div> 
             <div class="container">           
             <div class="letters">
                 <div class="container-video">
                     <video  id="playVid" class ="mp4" preload ="auto">
                     </video> 
                 </div>                
-                <div class="container-hideword">                    
+                <div class="container-hideword"> 
+                    <p class="number-hit">Vous avez <button id="hit" class="hit"></button> tentatives pour trouver le mot caché</p>                   
                     <div class="hideword"></div>                    
                 </div>
                 <div class="alphabet">
