@@ -11,13 +11,15 @@ const idLevel = document.getElementById("level");
 const idWord = document.getElementById("word");
 const valid = document.querySelector(".btn");
 const idHit = document.getElementById("hit");
-let countNumberHitWord = 0;
+let countNumberHit = 0;
 let numberWordGame = 1;
 let tempNumberWordGame = 0;
 let tempCountHit = 0;
 let nameOne = null;
 let difficult = null;
 let error = false;
+
+export { countNumberHit, difficult };
 ///////////////////////-- Import ---//////////////////////////////////////////////////////////
 import { gameWordPendu } from "./game.js"; /// --> fonction qui permet de jouer au jeu du pendu
 
@@ -41,6 +43,7 @@ pseudoOne.addEventListener("input", e => {
   nameOne = e.target.value;
 });
 
+// choice level difficult
 levelGame.forEach(level => {
   level.addEventListener("click", e => {
     difficult = e.target.id;
@@ -48,7 +51,7 @@ levelGame.forEach(level => {
   });
 });
 
-/// valid parameters
+/// valid parameters choices
 valid.addEventListener("click", e => {
   verify();
   if (error) {
@@ -66,17 +69,17 @@ valid.addEventListener("click", e => {
     idWord.textContent = numberWordGame;
 
     if (difficult == "Facile") {
-      countNumberHitWord = 11;
+      countNumberHit = 11;
       tempCountHit = 11;
     } else if (difficult == "Moyen") {
-      countNumberHitWord = 9;
+      countNumberHit = 9;
       tempCountHit = 9;
     } else {
-      countNumberHitWord = 5;
+      countNumberHit = 5;
       tempCountHit = 5;
     }
 
-    idHit.textContent = countNumberHitWord;
+    idHit.textContent = countNumberHit;
     gameWordPendu();
   }
 });

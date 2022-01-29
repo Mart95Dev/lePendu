@@ -63,7 +63,4 @@ pseudoTwo.addEventListener('input', (e) => {
     error = true;
     return;
   }
-   ///////////////////////////////////////////////////
-   //// phrase a rajouter en cas de modification du code avec choix de plusieurs mots pour gagner une partie
-   <p class="win-lost-text2"> Vous avez trouvé <button class="total-word btn-end-display">${numberWordEndGame} </button> mot, soit <button class="word-percent btn-end-display">${percentWord}%</button> du total des mots choisis</p>
-   //////////////////////////////////////////////////
+   

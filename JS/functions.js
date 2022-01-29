@@ -1,3 +1,16 @@
+/// revoir toutes les fonctions pour eliminer tout le code HTML javascript et l'inséer en fix dans le code HTMl
+/// afin de l réduire et simplifier le code - fait le 29-01-22
+//////////////////////////////////////////////////////////////////
+//function that decreases the number of attempts
+export const hitNumber = () => {
+  const numberHit = document.querySelector(".number-hit");
+  numberHit.remove();
+  numberHitWord.insertAdjacentHTML(
+    "afterbegin",
+    `<p class="number-hit">Vous avez <button class="hit">${numberHitCount}</button> tentatives pour retrouver le mot caché</p>`
+  );
+};
+
 // video function that triggers depending on the end of the game: win or lose
 export const playVideoEnd = () => {
   const containerVideo = document.querySelector(".container-video");

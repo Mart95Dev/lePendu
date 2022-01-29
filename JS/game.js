@@ -14,19 +14,23 @@ let displayLetter = [];
 let wordHide = document.createElement("p");
 let count = 0;
 let endLost = false;
+let letterFound = false;
+let numberHitCount = 0;
 
 /////////////////////////////////--Import--///////////////////////////////////
+import { difficult, countNumberHit } from "./app.js";
 import { words } from "./baseWords.js"; ///--> liste des mots aléatoires pour le jeu du pendu
 import {
   drawPenduLevelEasy,
   drawPenduLevelMedium,
   drawPenduLevelDifficult
 } from "./canvas.js";
+import { hitNumber } from "./functions.js";
 
 //////////////////////////// GAME ////////////////////////////////
 export const gameWordPendu = () => {
   let buttonLetter = "";
-  let letterFound = false;
+  console.log(difficult);
   const hideWord = document.querySelector(".hideword");
   let wordDisplayHide = "";
   wordHide.classList.add("content-hide-word");
@@ -72,8 +76,9 @@ export const gameWordPendu = () => {
           ++count;
           drawPenduLevelDifficult.get(count)();
         }
-
-        countNumberHitWord--;
+        /// renomme la vairable countNumberHit à l'import le let devient const ???
+        numberHitCount = countNumberHit;
+        numberHitCount--;
         hitNumber();
         letterFound = false;
       }
@@ -85,7 +90,7 @@ export const gameWordPendu = () => {
         playVideoEnd();
       }
 
-      if (countNumberHitWord === 0) {
+      if (numberHitCount === 0) {
         endLost = true;
         playVideoEnd();
       }
