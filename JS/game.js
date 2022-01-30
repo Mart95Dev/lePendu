@@ -1,3 +1,22 @@
+////////////////////////////////////////////////////////////////////////////
+// ce fichier est le code purement du jeu du pendu, de la fenetre du score, des vidéos et des modification des paramètres
+
+/////////////////////////////////--Import--///////////////////////////////////
+import {
+  parametersChoices,
+  elementHit,
+  idHit,
+  modalParameter,
+  contentGame
+} from "./app.js";
+import { words } from "./baseWords.js"; ///--> liste des mots aléatoires pour le jeu du pendu
+import {
+  drawPenduLevelEasy,
+  drawPenduLevelMedium,
+  drawPenduLevelDifficult
+} from "./canvas.js";
+import { endLost, playVideoEnd } from "./functions.js";
+
 ///////////////////////-- Variables --//////////////////////////////////////
 let boxSeekLetters = document.querySelector(".seek");
 const buttonAlphabet = document.querySelectorAll(".alphabet button");
@@ -13,24 +32,11 @@ let tempSelectWord = [];
 let displayLetter = [];
 let wordHide = document.createElement("p");
 let count = 0;
-let endLost = false;
 let letterFound = false;
-let numberHitCount = 0;
-
-/////////////////////////////////--Import--///////////////////////////////////
-import { difficult, countNumberHit } from "./app.js";
-import { words } from "./baseWords.js"; ///--> liste des mots aléatoires pour le jeu du pendu
-import {
-  drawPenduLevelEasy,
-  drawPenduLevelMedium,
-  drawPenduLevelDifficult
-} from "./canvas.js";
-import { hitNumber } from "./functions.js";
 
 //////////////////////////// GAME ////////////////////////////////
 export const gameWordPendu = () => {
   let buttonLetter = "";
-  console.log(difficult);
   const hideWord = document.querySelector(".hideword");
   let wordDisplayHide = "";
   wordHide.classList.add("content-hide-word");
@@ -60,26 +66,24 @@ export const gameWordPendu = () => {
         `<button id="${buttonLetter}" class="btn-letter-seek">${buttonLetter}</button>`
       );
       /////////////////////////////
+      /* numberHitCount = countNumberHit; */
 
       displayLetter = seekLetter(buttonLetter);
       console.log(buttonLetter);
       if (!letterFound) {
-        // if choice letter is not found - draw pendu
-
-        if (difficult === "Facile") {
+        if (parametersChoices.difficult === "Facile") {
           ++count;
           drawPenduLevelEasy.get(count)();
-        } else if (difficult === "Moyen") {
+        } else if (parametersChoices.difficult === "Moyen") {
           ++count;
           drawPenduLevelMedium.get(count)();
         } else {
           ++count;
           drawPenduLevelDifficult.get(count)();
         }
-        /// renomme la vairable countNumberHit à l'import le let devient const ???
-        numberHitCount = countNumberHit;
-        numberHitCount--;
-        hitNumber();
+
+        elementHit.count--;
+        idHit.textContent = elementHit.count;
         letterFound = false;
       }
       letterFound === true ? (letterFound = false) : "";
@@ -90,8 +94,8 @@ export const gameWordPendu = () => {
         playVideoEnd();
       }
 
-      if (numberHitCount === 0) {
-        endLost = true;
+      if (elementHit.count === 0) {
+        endLost.content = true;
         playVideoEnd();
       }
     });
