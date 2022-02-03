@@ -11,7 +11,7 @@ const levelGame = document.querySelectorAll('input[name="level"]');
 const idPseudo = document.getElementById("pseudo");
 const idLevel = document.getElementById("level");
 const idWord = document.getElementById("word");
-const valid = document.querySelector(".btn");
+const buttonValid = document.querySelector(".btn");
 const idHit = document.getElementById("hit");
 
 const elementHit = {
@@ -31,12 +31,17 @@ const parametersChoices = {
 };
 
 export {
-  elementHit,
+  idPseudo,
+  idLevel,
   idHit,
+  elementHit,
   parametersChoices,
   wordPendu,
   contentGame,
-  modalParameter
+  modalParameter,
+  buttonValid,
+  choicesInputParameters,
+  choiceLevelAndCountHit
 };
 ///////////////////////-- Import ---//////////////////////////////////////////////////////////
 import { gameWordPendu } from "./game.js"; /// --> fonction qui permet de jouer au jeu du pendu
@@ -55,21 +60,27 @@ buttonParameter.addEventListener("click", () => {
 });
 ////////////// Parameters game ///////////////////////////
 idGamer.checked = true;
-//choice pseudo player
-pseudoOne.addEventListener("input", e => {
-  parametersChoices.name = e.target.value;
-});
 
-// choice level difficult
-levelGame.forEach(level => {
-  level.addEventListener("click", e => {
-    parametersChoices.difficult = e.target.id;
-    level.setAttribute("checked", "");
+const choicesInputParameters = () => {
+  //choice pseudo player
+  pseudoOne.addEventListener("input", e => {
+    parametersChoices.name = e.target.value;
   });
-});
 
-/// valid parameters choices
-valid.addEventListener("click", e => {
+  // choice level difficult
+  levelGame.forEach(level => {
+    level.addEventListener("click", e => {
+      parametersChoices.difficult = e.target.id;
+      level.setAttribute("checked", "");
+    });
+  });
+  return;
+};
+
+choicesInputParameters();
+
+/// button Valid parameters choices
+buttonValid.addEventListener("click", e => {
   verify();
   if (parametersChoices.error) {
     e.preventDefault;
@@ -85,16 +96,7 @@ valid.addEventListener("click", e => {
     idLevel.textContent = parametersChoices.difficult.toString().toUpperCase();
     idWord.textContent = wordPendu.numberWordGame;
 
-    if (parametersChoices.difficult == "Facile") {
-      elementHit.countHit = 11;
-      elementHit.tempCountHit = 11;
-    } else if (parametersChoices.difficult == "Moyen") {
-      elementHit.countHit = 9;
-      elementHit.tempCountHit = 9;
-    } else {
-      elementHit.countHit = 5;
-      elementHit.tempCountHit = 5;
-    }
+    choiceLevelAndCountHit();
 
     idHit.textContent = elementHit.countHit;
     gameWordPendu();
@@ -120,4 +122,19 @@ const verify = () => {
     parametersChoices.error = true;
     return;
   }
+};
+
+////////////
+const choiceLevelAndCountHit = () => {
+  if (parametersChoices.difficult == "Facile") {
+    elementHit.countHit = 11;
+    elementHit.tempCountHit = 11;
+  } else if (parametersChoices.difficult == "Moyen") {
+    elementHit.countHit = 9;
+    elementHit.tempCountHit = 9;
+  } else {
+    elementHit.countHit = 5;
+    elementHit.tempCountHit = 5;
+  }
+  return;
 };

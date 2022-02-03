@@ -1,10 +1,5 @@
 ////////////////////////-- import --//////////////////////////////
-import {
-  elementHit,
-  parametersChoices,
-  wordPendu,
-  contentGame
-} from "./app.js";
+import { elementHit, parametersChoices, contentGame } from "./app.js";
 
 //////////////////////////////////////////////////////////////////
 ////////////////////////-- Variables --//////////////////////////
@@ -52,7 +47,7 @@ const smileysEnd = () => {
   let scorePercentEnd = "";
   if (elementHit.countHit === 0) {
     scorePercentEnd =
-      (elementHit.tempCountHit - elementHit.countHit) /
+      (elementHit.countHit - elementHit.tempCountHit) /
       elementHit.tempCountHit *
       100;
   } else {
@@ -80,21 +75,12 @@ const smileysEnd = () => {
 //function that displays the end modal with the smiley face and the percentage and number of attempts
 const modalEnd = () => {
   let titleEndGame = "";
-  /* let numberWordEndGame = 0; */
-  let percentWord = 0;
   let numberHitEndGame = 0;
   if (elementHit.countHit === 0) {
     titleEndGame = `MALHEUREUSEMENT ! ${parametersChoices.name.toUpperCase()}, vous avez perdu la partie `;
-    /* numberWordEndGame = elementHit.tempCountHit - berWordGame; */
-    /* percentWord =
-      (wordPendu.numberWordGame - wordPendu.tempNumberWordGame) /
-      wordPendu.numberWordGame *
-      100; */
     numberHitEndGame = elementHit.tempCountHit;
   } else {
     titleEndGame = `SUPER ! ${parametersChoices.name.toUpperCase()}, vous avez gagné la partie `;
-    /* numberWordEndGame = wordPendu.tempNumberWordGame; */
-    /*  percentWord = wordPendu.tempNumberWordGame / wordPendu.numberWordGame * 100; */
     numberHitEndGame = (elementHit.countHit - elementHit.tempCountHit) * -1;
     console.log(numberHitEndGame);
   }

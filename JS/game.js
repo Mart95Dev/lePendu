@@ -6,8 +6,13 @@ import {
   parametersChoices,
   elementHit,
   idHit,
+  idPseudo,
+  idLevel,
   modalParameter,
-  contentGame
+  contentGame,
+  buttonValid,
+  choicesInputParameters,
+  choiceLevelAndCountHit
 } from "./app.js";
 import { words } from "./baseWords.js"; ///--> liste des mots aléatoires pour le jeu du pendu
 import {
@@ -20,13 +25,16 @@ import { endLost, playVideoEnd } from "./functions.js";
 ///////////////////////-- Variables --//////////////////////////////////////
 let boxSeekLetters = document.querySelector(".seek");
 const buttonAlphabet = document.querySelectorAll(".alphabet button");
-const resetParameters = document.querySelector(".reset-parameters");
+const modidyParameters = document.querySelector(".modify-parameters");
 const endGame = document.querySelector(".end");
 const btnGame = document.querySelector(".go-game");
 const btnGame2 = document.querySelector(".go-game-2");
 const stopG = document.querySelector(".stop");
 const stopG2 = document.querySelector(".stop-2");
 const stopGame = document.querySelector(".modal-stop-game");
+const buttonModifyParametersbeginGame = document.querySelector(
+  ".btn-modify-disable"
+);
 let selectWord = [];
 let tempSelectWord = [];
 let displayLetter = [];
@@ -58,7 +66,7 @@ export const gameWordPendu = () => {
     letter.addEventListener("click", e => {
       buttonLetter = e.target.id.toUpperCase();
       letter.classList.add("boxDisabled");
-      resetParameters.classList.add("boxDisabled");
+      modidyParameters.classList.add("boxDisabled");
 
       /// box seek letters/////////////
       boxSeekLetters.insertAdjacentHTML(
@@ -103,11 +111,31 @@ export const gameWordPendu = () => {
 
 //////////////////////////////////////////////////////////////////////////////////
 //addEventListener of all buttons
-resetParameters.addEventListener("click", () => {
+
+//button modifer les paramètres actif avant de commence de jouer : permet de changer les paramètres sur la modale jeu
+modidyParameters.addEventListener("click", () => {
   modalParameter.classList.add("active");
+  buttonValid.classList.remove("btn");
+  buttonValid.classList.add("btn-disable");
+  buttonModifyParametersbeginGame.classList.remove("btn-modify-disable");
+  buttonModifyParametersbeginGame.classList.add("btn-modify");
   modalParameter.classList.remove("modal-parameter");
   contentGame.classList.remove("active");
   contentGame.classList.add("modal-game");
+  return;
+});
+
+// button valider les modifications des paramètres avant de jouer
+buttonModifyParametersbeginGame.addEventListener("click", () => {
+  choicesInputParameters();
+  choiceLevelAndCountHit();
+  idPseudo.textContent = parametersChoices.name.toString().toUpperCase();
+  idLevel.textContent = parametersChoices.difficult.toString().toUpperCase();
+  idHit.textContent = elementHit.countHit;
+  modalParameter.classList.remove("active");
+  modalParameter.classList.add("modal-parameter");
+  contentGame.classList.add("active");
+  contentGame.classList.remove("modal-game");
   return;
 });
 
