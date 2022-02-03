@@ -50,13 +50,13 @@ const playVideoEnd = () => {
 const smileysEnd = () => {
   const smileyWordHit = document.getElementById("img");
   let scorePercentEnd = "";
-  if (elementHit.count === 0) {
+  if (elementHit.countHit === 0) {
     scorePercentEnd =
-      (elementHit.tempCountHit - elementHit.count) /
+      (elementHit.tempCountHit - elementHit.countHit) /
       elementHit.tempCountHit *
       100;
   } else {
-    scorePercentEnd = elementHit.tempCountHit / elementHit.tempCountHit * 100;
+    scorePercentEnd = elementHit.countHit / elementHit.tempCountHit * 100;
   }
 
   if (scorePercentEnd < 26) {
@@ -73,29 +73,30 @@ const smileysEnd = () => {
   }
   return;
 };
-//// revoir la logique des calculs je suis perdu!! le 30/01/22
+
 /// ajouter un bouton modifier à la modale paramètres désactiver au choix des paramètres. activer à la
 //modification des paramètres et désactiver le bouton valider
 
 //function that displays the end modal with the smiley face and the percentage and number of attempts
 const modalEnd = () => {
   let titleEndGame = "";
-  let numberWordEndGame = 0;
+  /* let numberWordEndGame = 0; */
   let percentWord = 0;
   let numberHitEndGame = 0;
-  if (elementHit.count === 0) {
+  if (elementHit.countHit === 0) {
     titleEndGame = `MALHEUREUSEMENT ! ${parametersChoices.name.toUpperCase()}, vous avez perdu la partie `;
-    numberWordEndGame = elementHit.tempCountHit - berWordGame;
-    percentWord =
+    /* numberWordEndGame = elementHit.tempCountHit - berWordGame; */
+    /* percentWord =
       (wordPendu.numberWordGame - wordPendu.tempNumberWordGame) /
       wordPendu.numberWordGame *
-      100;
+      100; */
     numberHitEndGame = elementHit.tempCountHit;
   } else {
     titleEndGame = `SUPER ! ${parametersChoices.name.toUpperCase()}, vous avez gagné la partie `;
-    numberWordEndGame = wordPendu.tempNumberWordGame;
-    percentWord = wordPendu.tempNumberWordGame / wordPendu.numberWordGame * 100;
-    numberHitEndGame = (elementHit.count - elementHit.tempCountHit) * -1;
+    /* numberWordEndGame = wordPendu.tempNumberWordGame; */
+    /*  percentWord = wordPendu.tempNumberWordGame / wordPendu.numberWordGame * 100; */
+    numberHitEndGame = (elementHit.countHit - elementHit.tempCountHit) * -1;
+    console.log(numberHitEndGame);
   }
   contentGame.classList.remove("active");
   contentGame.classList.add("modal-game");

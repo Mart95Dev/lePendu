@@ -15,7 +15,7 @@ const valid = document.querySelector(".btn");
 const idHit = document.getElementById("hit");
 
 const elementHit = {
-  count: 0,
+  countHit: 0,
   tempCountHit: 0
 };
 
@@ -86,17 +86,17 @@ valid.addEventListener("click", e => {
     idWord.textContent = wordPendu.numberWordGame;
 
     if (parametersChoices.difficult == "Facile") {
-      elementHit.count = 11;
-      elementHit.tempCount = 11;
+      elementHit.countHit = 11;
+      elementHit.tempCountHit = 11;
     } else if (parametersChoices.difficult == "Moyen") {
-      elementHit.count = 9;
-      elementHit.tempCount = 9;
+      elementHit.countHit = 9;
+      elementHit.tempCountHit = 9;
     } else {
-      elementHit.count = 5;
-      elementHit.tempCount = 5;
+      elementHit.countHit = 5;
+      elementHit.tempCountHit = 5;
     }
 
-    idHit.textContent = elementHit.count;
+    idHit.textContent = elementHit.countHit;
     gameWordPendu();
   }
 });

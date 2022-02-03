@@ -66,7 +66,6 @@ export const gameWordPendu = () => {
         `<button id="${buttonLetter}" class="btn-letter-seek">${buttonLetter}</button>`
       );
       /////////////////////////////
-      /* numberHitCount = countNumberHit; */
 
       displayLetter = seekLetter(buttonLetter);
       console.log(buttonLetter);
@@ -82,8 +81,8 @@ export const gameWordPendu = () => {
           drawPenduLevelDifficult.get(count)();
         }
 
-        elementHit.count--;
-        idHit.textContent = elementHit.count;
+        elementHit.countHit--;
+        idHit.textContent = elementHit.countHit;
         letterFound = false;
       }
       letterFound === true ? (letterFound = false) : "";
@@ -94,7 +93,7 @@ export const gameWordPendu = () => {
         playVideoEnd();
       }
 
-      if (elementHit.count === 0) {
+      if (elementHit.countHit === 0) {
         endLost.content = true;
         playVideoEnd();
       }
