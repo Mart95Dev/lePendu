@@ -52,7 +52,6 @@ export const gameWordPendu = () => {
   // Choice word
   let wordRandomArray = words[Math.floor(Math.random() * words.length)];
   selectWord = wordRandomArray.toString().toUpperCase();
-  console.log(selectWord);
 
   //////////////////////////////////////
   wordDisplayHide = selectWord.replace(/[A-Z]/g, "_"); //replace letter for "_" via regex
@@ -76,7 +75,7 @@ export const gameWordPendu = () => {
       /////////////////////////////
 
       displayLetter = seekLetter(buttonLetter);
-      console.log(buttonLetter);
+
       if (!letterFound) {
         if (parametersChoices.difficult === "Facile") {
           ++count;

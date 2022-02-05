@@ -82,7 +82,6 @@ const modalEnd = () => {
   } else {
     titleEndGame = `SUPER ! ${parametersChoices.name.toUpperCase()}, vous avez gagné la partie `;
     numberHitEndGame = (elementHit.countHit - elementHit.tempCountHit) * -1;
-    console.log(numberHitEndGame);
   }
   contentGame.classList.remove("active");
   contentGame.classList.add("modal-game");
