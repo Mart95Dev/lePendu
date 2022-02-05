@@ -1,3 +1,14 @@
 @import 'modales.css';
 @import 'parameters.css';
 @import 'styleGame.css';
+
+/* Reset */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* display responsive */
